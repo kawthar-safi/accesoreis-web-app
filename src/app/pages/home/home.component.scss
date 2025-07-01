@@ -1,0 +1,299 @@
+#carouselExampleIndicators {
+  // border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner .slider-img {
+  object-fit: cover;
+  height: 600px;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--soft-gold);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(0.8);
+}
+
+/* Element Section */
+.element-section {
+  padding: 3rem 1.5rem;
+  background-color: #523f2e;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--soft-gold);
+}
+
+.element-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.element-card {
+  all: unset;
+  background-color: #ede6db;
+  border-radius: 0.75rem;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.element-card:hover {
+  transform: scale(1.05);
+}
+
+.element-card i {
+  font-size: 1.5rem;
+  color: var(--soft-gold);
+}
+
+.label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Featured Gem Section */
+.featured-gem-section {
+  background-color: #483728;
+  color: var(--text-light);
+}
+
+.featured-gem-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 4rem;
+}
+
+.featured-gem-img {
+  width: 50%;
+
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.featured-gem-info {
+  max-width: 400px;
+}
+
+.featured-gem-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--soft-gold);
+}
+
+.featured-gem-info p {
+  line-height: 1.6;
+}
+
+.shop-now-btn {
+  margin-top: 1rem;
+  background-color: var(--soft-gold);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background-color: #c4a46c;
+}
+/* Featured Collections Section */
+.collection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  background-color: #5c4533; // لون دافئ متناسق مع باقي الأقسام
+}
+
+.collection-grid h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--soft-gold);
+}
+
+.collection-card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.collection-info {
+  padding: 1rem;
+}
+
+.collection-info h4 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.collection-info p {
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+.scan-shine-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.camera-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.ring-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hand-guide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+.try-now-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff0f5;
+}
+
+.try-now-btn {
+  margin-top: 1rem;
+  background-color: var(--soft-gold);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+}
+
+.try-now-btn:hover {
+  background-color: #6c5b2d;
+}
+.close-btn {
+  margin-top: 1rem;
+  background-color: var(--soft-gold);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #2e0202;
+}
+.tryon-highlight-section {
+  background-color: #483728; // نفس خلفية جوهرة اليوم
+  color: var(--text-light);
+  padding: 3rem 1.5rem;
+}
+
+.tryon-highlight-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 4rem;
+}
+
+.tryon-highlight-img {
+  width: 45%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.tryon-highlight-info {
+  max-width: 400px;
+}
+
+.tryon-highlight-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--soft-gold);
+}
+
+.tryon-highlight-info p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
