@@ -1,1 +1,169 @@
-<p>home works!</p>
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="carousel"
+  data-bs-interval="3000"
+>
+  <div class="carousel-indicators">
+    <button
+      *ngFor="let image of images; let i = index"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      [attr.data-bs-slide-to]="i"
+      [class.active]="i === 0"
+      [attr.aria-current]="i === 0 ? 'true' : null"
+      [attr.aria-label]="'Slide ' + (i + 1)"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div
+      *ngFor="let image of images; let i = index"
+      class="carousel-item"
+      [class.active]="i === 0"
+    >
+      <img
+        [src]="image.src"
+        [alt]="image.alt"
+        class="d-block w-100 slider-img"
+      />
+    </div>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="element-section">
+  <h2 class="section-title">Find Your Element</h2>
+
+  <div class="element-grid">
+    <button
+      class="element-card"
+      *ngFor="let el of elements"
+      (click)="selectElement()"
+      type="button"
+    >
+      <i class="bi" [ngClass]="el.icon"></i>
+      <div class="label">{{ el.name }}</div>
+    </button>
+  </div>
+</div>
+<div class="featured-gem-section">
+  <div class="featured-gem-content">
+    <img
+      src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1751222643/high-angle-aesthetic-golden-earrings_bmlqkd.jpg"
+      alt="Jewel of the Day"
+      class="featured-gem-img"
+    />
+
+    <div class="featured-gem-info">
+      <h3>Jewel of the Day</h3>
+      <p>
+        Discover the beauty and elegance of today's featured gem, carefully
+        selected to add a unique touch to your look. A distinctive piece with a
+        sophisticated design that suits all styles.
+      </p>
+      <button class="shop-now-btn">Shop Now</button>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="collection-grid">
+    <h3>Featured Collections</h3>
+    <div class="collection-card">
+      <img
+        src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1751222643/high-angle-aesthetic-golden-earrings_bmlqkd.jpg"
+        alt="Collection 1"
+      />
+      <div class="collection-info">
+        <h4>Collection 1</h4>
+        <p>Description of Collection 1</p>
+      </div>
+    </div>
+    <div class="collection-card">
+      <img
+        src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1751222841/queen_gk0t7v.jpg"
+        alt="Collection 2"
+      />
+      <div class="collection-info">
+        <h4>Collection 2</h4>
+        <p>Description of Collection 2</p>
+      </div>
+    </div>
+    <div class="collection-card">
+      <img
+        src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1751222841/queen_gk0t7v.jpg"
+        alt="Collection 2"
+      />
+      <div class="collection-info">
+        <h4>Collection 3</h4>
+        <p>Description of Collection 3</p>
+      </div>
+    </div>
+    <div class="collection-card">
+      <img
+        src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1751222841/queen_gk0t7v.jpg"
+        alt="Collection 2"
+      />
+      <div class="collection-info">
+        <h4>Collection 4</h4>
+        <p>Description of Collection 4</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tryon-highlight-section">
+  <div class="tryon-highlight-content">
+    <img
+      src="assets/images/mokup.png"
+      alt="Try On Ring"
+      class="tryon-highlight-img"
+    />
+
+    <div class="tryon-highlight-info">
+      <h3 class="section-title">Try the Ring Now</h3>
+      <p class="section-subtitle">
+        Experience the magic of this elegant ring using augmented reality. Tap
+        the button and raise your hand to see how it looks on you!
+      </p>
+      <button class="try-now-btn" (click)="startTryOn()">Try Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Camera view appears only after pressing the button -->
+<div *ngIf="showTryOn" class="scan-shine-section">
+  <h2 class="section-title">Scan & Shine ✨</h2>
+  <p class="section-subtitle">
+    Place your hand in the frame to see how the ring looks on you.
+  </p>
+
+  <div class="camera-wrapper">
+    <video #video autoplay playsinline muted></video>
+
+    <!-- Ring Overlay -->
+    <img src="assets/ring.png" class="ring-overlay" alt="Ring Overlay" />
+
+    <!-- Hand Guide -->
+    <img src="assets/hand-outline.png" class="hand-guide" alt="Hand Guide" />
+  </div>
+
+  <button class="close-btn" (click)="stopTryOn()">Close</button>
+</div>

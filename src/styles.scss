@@ -1,12 +1,20 @@
 :root {
-  --dark-gray: #3d3d3d;
-  --deep-burgundy: #2c0d10;
-  --light-gray: #d9d9d9;
-  --sand-beige: #a89986;
+  --cream-bg: #f8f1e5;
+  --dark-brown: #4b372f;
+  --soft-gold: #d6b884;
+  --emerald-green: #178b5f;
+  --text-dark: #2e2e2e;
+  --text-light: #fdfaf7;
 }
 
+// body {
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+//   margin: 0;
+//   padding: 0;
+// }
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: var(--cream-bg);
+  font-family: "Georgia", serif;
+  color: var(--text-dark);
 }
