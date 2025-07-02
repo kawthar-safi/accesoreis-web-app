@@ -143,27 +143,81 @@
         Experience the magic of this elegant ring using augmented reality. Tap
         the button and raise your hand to see how it looks on you!
       </p>
-      <button class="try-now-btn" (click)="startTryOn()">Try Now</button>
+      <button
+        class="try-now-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#tryOnModal"
+      >
+        Try Now
+      </button>
     </div>
   </div>
 </div>
 
-<!-- Camera view appears only after pressing the button -->
-<div *ngIf="showTryOn" class="scan-shine-section">
-  <h2 class="section-title">Scan & Shine ✨</h2>
-  <p class="section-subtitle">
-    Place your hand in the frame to see how the ring looks on you.
-  </p>
+<!-- Modal for Try On -->
+<div
+  class="modal fade"
+  #tryOnModal
+  id="tryOnModal"
+  tabindex="-1"
+  aria-labelledby="tryOnModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content scan-shine-modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title section-title" id="tryOnModalLabel">
+          Scan & Shine ✨
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p class="section-subtitle">
+          Place your hand in the frame to see how the ring looks on you.
+        </p>
+        <div *ngIf="cameraPermissionDenied" class="alert alert-warning mt-2">
+          ⚠️ Please allow camera access from your browser.
+        </div>
+        <div class="camera-wrapper">
+          <video #video autoplay playsinline muted></video>
 
-  <div class="camera-wrapper">
-    <video #video autoplay playsinline muted></video>
+          <!-- Ring Overlay -->
+          <img src="assets/ring.png" class="ring-overlay" alt="Ring Overlay" />
 
-    <!-- Ring Overlay -->
-    <img src="assets/ring.png" class="ring-overlay" alt="Ring Overlay" />
-
-    <!-- Hand Guide -->
-    <img src="assets/hand-outline.png" class="hand-guide" alt="Hand Guide" />
+          <!-- Hand Guide -->
+          <img
+            src="assets/hand-outline.png"
+            class="hand-guide"
+            alt="Hand Guide"
+          />
+        </div>
+      </div>
+    </div>
   </div>
-
-  <button class="close-btn" (click)="stopTryOn()">Close</button>
+</div>
+<!--our story section-->
+<div class="our-story-section">
+  <div class="feedback container">
+    <h1>They Fell In Love With Wod</h1>
+    <p>
+      "Exquisite craftsmanship and elegance. I feel truly special wearing it." –
+      L.E. La K., Amman
+    </p>
+    <p>
+      "The packaging alone made me fall in love before I even opened it." –
+      Devika H., Dubai
+    </p>
+  </div>
+  <div>
+    <h1>Our Story</h1>
+    <p>
+      Wod was born from a desire to blend timeless craftsmanship with modern
+      elegance. Each piece tells a story — yours and ours.
+    </p>
+  </div>
 </div>
