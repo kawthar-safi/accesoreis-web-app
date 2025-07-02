@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   images = [
     { src: 'assets/images/slider1.png', alt: 'First Slide' },
     { src: 'assets/images/slider 2.png', alt: 'Second Slide' },
@@ -23,20 +23,30 @@ export class HomeComponent {
     // ممكن تروحي على فلتر – أو تنقلي المستخدم لصفحة معينة
     // this.router.navigate(['/collection', element.value]);
   }
-  @ViewChild('video') videoElement!: ElementRef<HTMLVideoElement>;
+  @ViewChild('video', { static: false })
+  videoElement!: ElementRef<HTMLVideoElement>;
+  @ViewChild('tryOnModal') tryOnModalRef!: ElementRef;
 
-  showTryOn = false;
+  ngAfterViewInit() {
+    const modalEl = this.tryOnModalRef.nativeElement;
 
-  startTryOn() {
-    this.showTryOn = true;
-
-    // Start the camera
-    setTimeout(() => {
+    modalEl.addEventListener('shown.bs.modal', () => {
       this.startCamera();
-    }, 0);
-  }
+    });
 
+    modalEl.addEventListener('hidden.bs.modal', () => {
+      this.stopCamera();
+    });
+  }
+  cameraPermissionDenied = false;
   startCamera() {
+    this.cameraPermissionDenied = false; // نعيد تعيين الحالة كل مرة
+
+    if (!this.videoElement?.nativeElement) {
+      console.warn('Video element not available');
+      return;
+    }
+
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices
         .getUserMedia({ video: true })
@@ -44,14 +54,16 @@ export class HomeComponent {
           this.videoElement.nativeElement.srcObject = stream;
         })
         .catch((err) => {
-          console.error('Failed to access camera', err);
+          console.error('Camera access denied:', err);
+          this.cameraPermissionDenied = true;
         });
+    } else {
+      this.cameraPermissionDenied = true;
     }
   }
-  stopTryOn() {
-    this.showTryOn = false;
+  stopCamera() {
+    if (!this.videoElement || !this.videoElement.nativeElement) return;
 
-    // إيقاف الكاميرا
     const stream = this.videoElement.nativeElement.srcObject as MediaStream;
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());

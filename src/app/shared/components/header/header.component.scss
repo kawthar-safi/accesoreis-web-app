@@ -1,6 +1,6 @@
 .main-header {
   padding: 1rem 2rem;
-  background-color: var(--cream-bg);
+  background-color: #d2b684ad;
 
   .top-bar {
     display: flex;
@@ -61,7 +61,7 @@
         bottom: -3px;
         width: 100%;
         height: 1px;
-        background-color: var(--soft-gold);
+        background-color: rgba(255, 255, 255, 0.705);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.3s ease;

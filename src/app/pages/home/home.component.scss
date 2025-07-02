@@ -23,21 +23,21 @@
 
 /* Element Section */
 .element-section {
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.5rem;
   background-color: #523f2e;
   text-align: center;
 }
 
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--soft-gold);
-}
+// .section-title {
+//   font-size: 2.2rem;
+//   margin-bottom: 10px;
+//   color: var(--soft-gold);
+// }
 
 .element-grid {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -45,8 +45,8 @@
   all: unset;
   background-color: #ede6db;
   border-radius: 0.75rem;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,13 +98,14 @@
 }
 
 .featured-gem-info h3 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
   color: var(--soft-gold);
 }
 
 .featured-gem-info p {
   line-height: 1.6;
+  font-size: 1.25rem;
 }
 
 .shop-now-btn {
@@ -129,13 +130,13 @@
   gap: 2rem;
   justify-content: center;
   padding: 3rem 1.5rem;
-  background-color: #5c4533; // لون دافئ متناسق مع باقي الأقسام
+  background-color: #5c4533;
 }
 
 .collection-grid h3 {
   width: 100%;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin-bottom: 2rem;
   color: var(--soft-gold);
 }
@@ -177,17 +178,18 @@
 }
 .scan-shine-section {
   text-align: center;
-  padding: 40px 20px;
+  padding: 30px 20px;
   background-color: #f7f7f7;
 }
 
 .section-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.4rem;
+  margin-bottom: 50px;
+  color: var(--soft-gold);
 }
 
 .section-subtitle {
-  color: #666;
+  color: #f7f7f7;
   margin-bottom: 20px;
 }
 
@@ -248,25 +250,11 @@ video {
 .try-now-btn:hover {
   background-color: #6c5b2d;
 }
-.close-btn {
-  margin-top: 1rem;
-  background-color: var(--soft-gold);
-  border: none;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  color: var(--text-dark);
-  transition: background-color 0.3s ease;
-}
 
-.close-btn:hover {
-  background-color: #2e0202;
-}
 .tryon-highlight-section {
-  background-color: #483728; // نفس خلفية جوهرة اليوم
+  background-color: #483728;
   color: var(--text-light);
-  padding: 3rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .tryon-highlight-content {
@@ -288,7 +276,7 @@ video {
 }
 
 .tryon-highlight-info h3 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   color: var(--soft-gold);
 }
@@ -296,4 +284,51 @@ video {
 .tryon-highlight-info p {
   line-height: 1.6;
   margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.scan-shine-modal-content {
+  background-color: #f7f7f7;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.modal-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: var(--soft-gold);
+}
+
+.modal-body {
+  text-align: center;
+}
+.btn-close {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.our-story-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #5c4533;
+  color: var(--text-light);
+  padding: 3rem 1.5rem;
+}
+.our-story-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--soft-gold);
+}
+.our-story-section p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
