@@ -181,3 +181,28 @@
     }
   }
 }
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .btn-switch {
+    background-color: transparent;
+    border: none;
+    color: var(--dark-brown);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 0.3rem 0.7rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+
+    &[aria-pressed="true"] {
+      color: var(--soft-gold);
+      border-bottom: 2px solid var(--soft-gold);
+    }
+
+    &:hover {
+      color: var(--dark-brown);
+    }
+  }
+}

@@ -1,6 +1,22 @@
 <header class="main-header">
   <div class="top-bar">
-    <div class="lang">En</div>
+    <div class="lang-switch">
+      <button
+        class="btn-switch"
+        (click)="switchToArabic()"
+        [attr.aria-pressed]="language === 'ar'"
+      >
+        عربي
+      </button>
+
+      <button
+        class="btn-switch"
+        (click)="switchToEnglish()"
+        [attr.aria-pressed]="language === 'en'"
+      >
+        English
+      </button>
+    </div>
 
     <div class="logo">
       <a routerLink="/">
@@ -17,10 +33,12 @@
   </div>
 
   <nav class="nav-links">
-    <a routerLink="/">HOME</a>
-    <a routerLink="/about">ABOUT</a>
+    <a routerLink="/">{{ "header.Home" | translate }}</a>
+    <a routerLink="/about">{{ "header.About" | translate }}</a>
     <div class="dropdown">
-      <a routerLink="/shop" class="dropdown-toggle">SHOP</a>
+      <a routerLink="/shop" class="dropdown-toggle">{{
+        "header.Shop" | translate
+      }}</a>
       <div class="dropdown-menu">
         <a routerLink="/shop/category1">Rings</a>
         <a routerLink="/shop/category3">Earrings</a>
@@ -28,6 +46,6 @@
         <a routerLink="/shop/category2">Necklaces</a>
       </div>
     </div>
-    <a routerLink="/contact">CONTACT</a>
+    <a routerLink="/contact">{{ "header.Contact" | translate }}</a>
   </nav>
 </header>
