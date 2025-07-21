@@ -36,14 +36,14 @@
     <a routerLink="/">{{ "header.Home" | translate }}</a>
     <a routerLink="/about">{{ "header.About" | translate }}</a>
     <div class="dropdown">
-      <a routerLink="/shop" class="dropdown-toggle">{{
+      <a [routerLink]="['/store']" class="dropdown-toggle">{{
         "header.Shop" | translate
       }}</a>
       <div class="dropdown-menu">
-        <a routerLink="/shop/category1">Rings</a>
-        <a routerLink="/shop/category3">Earrings</a>
-        <a routerLink="/shop/category4">Bracelets</a>
-        <a routerLink="/shop/category2">Necklaces</a>
+        <a routerLink="/store/rings">Rings</a>
+        <a routerLink="/store/earrings">Earrings</a>
+        <a routerLink="/store/bracelets">Bracelets</a>
+        <a routerLink="/store/necklaces">Necklaces</a>
       </div>
     </div>
     <a routerLink="/contact">{{ "header.Contact" | translate }}</a>

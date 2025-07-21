@@ -1,0 +1,42 @@
+<div class="shop-page">
+  <!-- Filter by Category -->
+  <div class="filter-bar">
+    <label for="categorySelect">Filter by:</label>
+    <select
+      id="categorySelect"
+      [(ngModel)]="selectedCategory"
+      (change)="filterProducts()"
+    >
+      <option value="">All</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+    </select>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <div
+      class="collection-card"
+      *ngFor="let product of filteredProducts"
+      (click)="goToProduct(product)"
+      (keydown.enter)="goToProduct(product)"
+      tabindex="0"
+      role="button"
+    >
+      <img [src]="product.image" alt="{{ product.name }}" />
+      <h4>{{ product.name }}</h4>
+
+      <div class="price-fav-cart-container">
+        <p class="price">{{ product.price | currency }}</p>
+        <div class="icons">
+          <a routerLink="/">
+            <i class="bi bi-heart"></i>
+          </a>
+
+          <a routerLink="/">
+            <i class="bi bi-cart"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

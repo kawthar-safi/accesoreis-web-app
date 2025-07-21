@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChild,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
@@ -6,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
   images = [
     { src: 'assets/images/slider1.png', alt: 'First Slide' },
     { src: 'assets/images/slider 2.png', alt: 'Second Slide' },
@@ -38,6 +44,7 @@ export class HomeComponent implements AfterViewInit {
       this.stopCamera();
     });
   }
+
   cameraPermissionDenied = false;
   startCamera() {
     this.cameraPermissionDenied = false; // نعيد تعيين الحالة كل مرة
@@ -68,6 +75,14 @@ export class HomeComponent implements AfterViewInit {
     if (stream) {
       stream.getTracks().forEach((track) => track.stop());
       this.videoElement.nativeElement.srcObject = null;
+    }
+  }
+  ngOnInit(): void {
+    if (
+      window.location.hostname === 'localhost' &&
+      window.location.port === '4200'
+    ) {
+      localStorage.clear();
     }
   }
 }
