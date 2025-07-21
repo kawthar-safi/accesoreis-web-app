@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { I18nService } from '../../../service/i18n/i18n.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-header',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
