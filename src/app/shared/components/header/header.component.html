@@ -26,12 +26,75 @@
 
     <div class="icons">
       <i class="bi bi-search"></i>
-      <i class="bi bi-heart"></i>
-      <i class="bi bi-bag"></i>
-      <i class="bi bi-person"></i>
+      <i
+        class="bi bi-heart"
+        data-bs-toggle="modal"
+        data-bs-target="#myModal"
+      ></i>
+      <i
+        class="bi bi-bag"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+      ></i>
+      <i class="bi bi-person" routerLink="/user-profile"></i>
     </div>
   </div>
 
+  <div
+    class="modal fade"
+    id="myModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- رأس المودال -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">عنوان المودال</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <!-- جسم المودال -->
+        <div class="modal-body">محتوى المودال هنا.</div>
+
+        <!-- ذيل المودال -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            إغلاق
+          </button>
+          <button type="button" class="btn btn-primary">حفظ التغييرات</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="offcanvas"
+    [ngClass]="isArabic ? 'offcanvas-start' : 'offcanvas-end'"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">...</div>
+  </div>
   <nav class="nav-links">
     <a routerLink="/">{{ "header.Home" | translate }}</a>
     <a routerLink="/about">{{ "header.About" | translate }}</a>

@@ -1,4 +1,4 @@
-export interface Products {
+export interface Fav {
   id: number;
   name: string;
   price: number;

@@ -13,4 +13,25 @@ export const routes: Routes = [
       import('./pages/store/store.component').then((m) => m.StoreComponent),
   },
   { path: 'store/:category', component: StoreComponent },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./pages/auth/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/auth/register/register.component').then(
+        (m) => m.RegisterComponent
+      ),
+  },
+  {
+    path: 'user-profile',
+    loadComponent: () =>
+      import('./shared/components/user-profile/user-profile.component').then(
+        (m) => m.UserProfileComponent
+      ),
+  },
 ];
