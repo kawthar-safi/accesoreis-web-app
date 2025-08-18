@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { FavoritesService } from './../../service/favorites.service';
+import { Component, inject, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Products } from '../../shared/model/product';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AccesoreisService } from '../../service/accesoreis.service';
+
 @Component({
   selector: 'app-store',
   imports: [CommonModule, FormsModule],
@@ -13,47 +16,27 @@ import { ActivatedRoute } from '@angular/router';
 export class StoreComponent implements OnInit {
   categories = ['Rings', 'Bracelets', 'Necklaces', 'Earrings'];
   selectedCategory = '';
+  @Input() product: Products | undefined;
+  isFavorite = false;
 
-  products: Products[] = [
-    {
-      id: 1,
-      name: 'Golden Ring',
-      price: 120,
-      category: 'Rings',
-      image: 'assets/products/ring1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Elegant Bracelet',
-      price: 90,
-      category: 'Bracelets',
-      image: 'assets/products/bracelet1.jpg',
-    },
-    {
-      id: 3,
-      name: 'Pearl Necklace',
-      price: 150,
-      category: 'Necklaces',
-      image: 'assets/products/necklace1.jpg',
-    },
-    {
-      id: 4,
-      name: 'Diamond Earrings',
-      price: 200,
-      category: 'Earrings',
-      image: 'assets/products/earrings1.jpg',
-    },
-  ];
+  products: Products[] = [];
 
   filteredProducts: Products[] = [];
 
-  // eslint-disable-next-line @angular-eslint/prefer-inject
-  constructor(private route: ActivatedRoute, private router: Router) {}
-
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private productService = inject(AccesoreisService);
+  private favoriteService = inject(FavoritesService);
   ngOnInit(): void {
+    const favorites = this.favoriteService.getFavorites();
+    this.isFavorite = !!favorites?.some((p) => p.id === this.product?.id);
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('category');
       this.selectedCategory = slug ? this.capitalize(slug) : '';
+      this.filterProducts();
+    });
+    this.productService.getAccesoreis().subscribe((data) => {
+      this.products = data;
       this.filterProducts();
     });
   }
@@ -80,5 +63,13 @@ export class StoreComponent implements OnInit {
   }
   addToCart() {
     alert('Added to cart');
+  }
+  toggleFavorite(product: Products) {
+    if (this.isFavorite) {
+      this.favoriteService.removeFromFavorites(product.id);
+    } else {
+      this.favoriteService.addToFavorites(product);
+    }
+    this.isFavorite = !this.isFavorite;
   }
 }
