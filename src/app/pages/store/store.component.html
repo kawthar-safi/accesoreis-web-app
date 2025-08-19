@@ -30,9 +30,12 @@
         <div class="icons">
           <button (click)="toggleFavorite(product)">
             <span
-              [ngClass]="{ favorite: isFavorite, 'not-favorite': !isFavorite }"
+              [ngClass]="{
+                favorite: isFavorite(product),
+                'not-favorite': !isFavorite(product)
+              }"
             >
-              {{ isFavorite ? "❤️" : "🤍" }}
+              {{ isFavorite(product) ? "❤️" : "🤍" }}
             </span>
           </button>
         </div>

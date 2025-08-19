@@ -1,15 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { I18nService } from '../../../service/i18n/i18n.service';
 import { TranslatePipe } from '../../pipes/translate.pipe';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Products } from '../../model/product';
+import { FavoritesService } from '../../../service/favorites.service';
 @Component({
   selector: 'app-header',
   imports: [TranslatePipe, RouterModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   i18nService = inject(I18nService);
   language: 'en' | 'ar' = 'en';
   isArabic = false;
@@ -29,4 +31,16 @@ export class HeaderComponent {
   //   this.language = (localStorage.getItem('language') as 'en' | 'ar') || 'en';
   //   this.isArabic = this.language === 'ar';
   // }
+  public favoriteService = inject(FavoritesService);
+
+  openProductModal(product: Products) {
+    this.favoriteService.openModal(product);
+  }
+  favoriteProducts: Products[] = [];
+
+  ngOnInit() {
+    this.favoriteService.favorites$.subscribe((products) => {
+      this.favoriteProducts = products;
+    });
+  }
 }

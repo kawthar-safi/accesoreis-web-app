@@ -17,7 +17,6 @@ export class StoreComponent implements OnInit {
   categories = ['Rings', 'Bracelets', 'Necklaces', 'Earrings'];
   selectedCategory = '';
   @Input() product: Products | undefined;
-  isFavorite = false;
 
   products: Products[] = [];
 
@@ -27,9 +26,10 @@ export class StoreComponent implements OnInit {
   private router = inject(Router);
   private productService = inject(AccesoreisService);
   private favoriteService = inject(FavoritesService);
+  favoriteStatus = false;
   ngOnInit(): void {
     const favorites = this.favoriteService.getFavorites();
-    this.isFavorite = !!favorites?.some((p) => p.id === this.product?.id);
+    this.favoriteStatus = !!favorites?.some((p) => p.id === this.product?.id);
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('category');
       this.selectedCategory = slug ? this.capitalize(slug) : '';
@@ -65,11 +65,13 @@ export class StoreComponent implements OnInit {
     alert('Added to cart');
   }
   toggleFavorite(product: Products) {
-    if (this.isFavorite) {
+    if (this.isFavorite(product)) {
       this.favoriteService.removeFromFavorites(product.id);
     } else {
       this.favoriteService.addToFavorites(product);
     }
-    this.isFavorite = !this.isFavorite;
+  }
+  isFavorite(product: Products): boolean {
+    return this.favoriteService.getFavorites().some((p) => p.id === product.id);
   }
 }
