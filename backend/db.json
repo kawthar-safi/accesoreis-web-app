@@ -1,7 +1,7 @@
 {
   "accesoreis": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Elegant Gold Ring",
       "price": 120.5,
       "category": "Rings",
@@ -10,25 +10,25 @@
       "clientid": "k11"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Silver Diamond Ring",
-      "price": 150.0,
+      "price": 150,
       "category": "Rings",
       "image": "https://example.com/images/ring2.jpg",
       "description": "Shiny silver ring embedded with a small diamond for extra sparkle.",
       "clientid": "k11"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Classic Pearl Earrings",
-      "price": 80.0,
+      "price": 80,
       "category": "Earrings",
       "image": "https://example.com/images/earring1.jpg",
       "description": "Elegant pearl earrings that add timeless charm to your look.",
       "clientid": "k11"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Crystal Drop Earrings",
       "price": 95.25,
       "category": "Earrings",
@@ -37,25 +37,25 @@
       "clientid": "k11"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Leather Charm Bracelet",
-      "price": 60.0,
+      "price": 60,
       "category": "Bracelets",
       "image": "https://example.com/images/bracelet1.jpg",
       "description": "Trendy leather bracelet with multiple small charms.",
       "clientid": "k11"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Gold Chain Bracelet",
-      "price": 110.0,
+      "price": 110,
       "category": "Bracelets",
       "image": "https://example.com/images/bracelet2.jpg",
       "description": "Elegant gold chain bracelet suitable for everyday wear.",
       "clientid": "k11"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Heart Pendant Necklace",
       "price": 130.75,
       "category": "Necklaces",
@@ -64,14 +64,33 @@
       "clientid": "k11"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Vintage Pearl Necklace",
-      "price": 145.0,
+      "price": 145,
       "category": "Necklaces",
       "image": "https://example.com/images/necklace2.jpg",
       "description": "Vintage-style necklace with elegant white pearls.",
       "clientid": "k11"
     }
   ],
-  "favorites": [{}]
+  "favorites": [
+    {
+      "id": "8",
+      "name": "Vintage Pearl Necklace",
+      "price": 145,
+      "category": "Necklaces",
+      "image": "https://example.com/images/necklace2.jpg",
+      "description": "Vintage-style necklace with elegant white pearls.",
+      "clientid": "k11"
+    },
+    {
+      "id": "4",
+      "name": "Crystal Drop Earrings",
+      "price": 95.25,
+      "category": "Earrings",
+      "image": "https://example.com/images/earring2.jpg",
+      "description": "Stylish crystal earrings with a delicate drop design.",
+      "clientid": "k11"
+    }
+  ]
 }

@@ -61,7 +61,22 @@
         </div>
 
         <!-- جسم المودال -->
-        <div class="modal-body">محتوى المودال هنا.</div>
+        <div class="modal-body">
+          <div *ngIf="favoriteProducts.length; else noFavorites">
+            <div *ngFor="let product of favoriteProducts" class="favorite-item">
+              <h5>{{ product.name }}</h5>
+              <p>السعر: {{ product.price | currency }}</p>
+              <p>الفئة: {{ product.category }}</p>
+              <button (click)="favoriteService.removeFromFavorites(product.id)">
+                إزالة
+              </button>
+              <hr />
+            </div>
+          </div>
+          <ng-template #noFavorites>
+            <p>لا توجد منتجات مفضلة حالياً.</p>
+          </ng-template>
+        </div>
 
         <!-- ذيل المودال -->
         <div class="modal-footer">
@@ -72,7 +87,6 @@
           >
             إغلاق
           </button>
-          <button type="button" class="btn btn-primary">حفظ التغييرات</button>
         </div>
       </div>
     </div>
