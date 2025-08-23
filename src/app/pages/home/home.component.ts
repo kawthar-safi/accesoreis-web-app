@@ -4,30 +4,66 @@ import {
   ElementRef,
   ViewChild,
   OnInit,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
+import { Router, RouterModule } from '@angular/router';
+
+import { ElementCard } from '../../shared/model/card';
+import { Products } from '../../shared/model/product';
+import { AccesoreisService } from '../../service/accesoreis.service';
+
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements AfterViewInit, OnInit {
+  private router = inject(Router);
+  private productService = inject(AccesoreisService);
+  products: Products[] = [];
+  jewelOfTheDay!: Products;
   images = [
     { src: 'assets/images/slider1.png', alt: 'First Slide' },
     { src: 'assets/images/slider 2.png', alt: 'Second Slide' },
     { src: 'assets/images/slider3.png', alt: 'Third Slide' },
   ];
   elements = [
-    { name: 'Fire', icon: 'bi-fire', value: 'fire' },
-    { name: 'Water', icon: 'bi-droplet', value: 'water' },
-    { name: 'Earth', icon: 'bi-tree', value: 'earth' },
-    { name: 'Air', icon: 'bi-cloud', value: 'air' },
+    {
+      name: 'Fire',
+      icon: 'bi-fire',
+      value: 'fire',
+      material: 'Gold',
+
+      desc: 'Bold & radiant like flames',
+    },
+    {
+      name: 'Water',
+      icon: 'bi-droplet',
+      value: 'water',
+      material: 'Pearl',
+      desc: 'Elegant & fluid as waves',
+    },
+    {
+      name: 'Earth',
+      icon: 'bi-tree',
+      value: 'earth',
+      material: 'Crystal',
+      desc: 'Grounded with timeless gems',
+    },
+    {
+      name: 'Air',
+      icon: 'bi-cloud',
+      value: 'air',
+      material: 'Silver',
+      desc: 'Light & dazzling brilliance',
+    },
   ];
 
-  selectElement() {
-    // ممكن تروحي على فلتر – أو تنقلي المستخدم لصفحة معينة
-    // this.router.navigate(['/collection', element.value]);
+  selectElement(element: ElementCard) {
+    this.router.navigate(['/store/material', element.material]);
   }
   @ViewChild('video', { static: false })
   videoElement!: ElementRef<HTMLVideoElement>;
@@ -47,7 +83,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
 
   cameraPermissionDenied = false;
   startCamera() {
-    this.cameraPermissionDenied = false; // نعيد تعيين الحالة كل مرة
+    this.cameraPermissionDenied = false;
 
     if (!this.videoElement?.nativeElement) {
       console.warn('Video element not available');
@@ -84,5 +120,12 @@ export class HomeComponent implements AfterViewInit, OnInit {
     ) {
       localStorage.clear();
     }
+    this.productService.getAccesoreis().subscribe((data: Products[]) => {
+      this.products = data;
+
+      // حدد المنتج حسب اليوم (أو عشوائي)
+      const todayIndex = new Date().getDate() % this.products.length;
+      this.jewelOfTheDay = this.products[todayIndex];
+    });
   }
 }

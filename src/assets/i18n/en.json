@@ -4,5 +4,17 @@
     "About": "About",
     "Contact": "Contact",
     "Shop": "Shop"
+  },
+  "element": {
+    "Fire": "Fire",
+    "Water": "Water",
+    "Earth": "Earth",
+    "Air": "Air"
+  },
+  "desc": {
+    "Fire": "Strength, passion, and boldness.",
+    "Water": "Calmness, purity, and fluidity.",
+    "Earth": "Stability, authenticity, and natural beauty.",
+    "Air": "Freedom, lightness, and creativity."
   }
 }

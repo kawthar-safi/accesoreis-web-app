@@ -5,7 +5,7 @@
     <select
       id="categorySelect"
       [(ngModel)]="selectedCategory"
-      (change)="filterProducts()"
+      (change)="filterByCategory()"
     >
       <option value="">All</option>
       <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
