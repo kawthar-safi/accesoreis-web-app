@@ -21,33 +21,58 @@ export class StoreComponent implements OnInit {
   products: Products[] = [];
 
   filteredProducts: Products[] = [];
+  selectedMaterial = '';
 
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private productService = inject(AccesoreisService);
   private favoriteService = inject(FavoritesService);
   favoriteStatus = false;
+
   ngOnInit(): void {
-    const favorites = this.favoriteService.getFavorites();
-    this.favoriteStatus = !!favorites?.some((p) => p.id === this.product?.id);
-    this.route.paramMap.subscribe((params) => {
-      const slug = params.get('category');
-      this.selectedCategory = slug ? this.capitalize(slug) : '';
-      this.filterProducts();
-    });
+    // جلب المنتجات أولاً
     this.productService.getAccesoreis().subscribe((data) => {
       this.products = data;
-      this.filterProducts();
+
+      // استمع للـ params بعد ما يجي المنتجات
+      this.route.paramMap.subscribe((params) => {
+        const category = params.get('category');
+        const material = params.get('material');
+
+        if (category) {
+          this.selectedCategory = this.capitalize(category);
+          this.filterByCategory();
+        } else if (material) {
+          this.selectedMaterial = material;
+          this.filterByMaterial();
+        } else {
+          // اذا ما في باراميتر اعرض الكل
+          this.filteredProducts = [...this.products];
+        }
+      });
     });
+
+    // favorites
+    const favorites = this.favoriteService.getFavorites();
+    this.favoriteStatus = !!favorites?.some((p) => p.id === this.product?.id);
   }
 
-  filterProducts(): void {
-    if (!this.selectedCategory) {
-      this.filteredProducts = [...this.products];
-    } else {
+  filterByCategory(): void {
+    if (this.selectedCategory) {
       this.filteredProducts = this.products.filter(
         (p) => p.category.toLowerCase() === this.selectedCategory.toLowerCase()
       );
+    } else {
+      this.filteredProducts = [...this.products];
+    }
+  }
+  filterByMaterial(): void {
+    if (this.selectedMaterial) {
+      this.filteredProducts = this.products.filter(
+        (p) => p.material.toLowerCase() === this.selectedMaterial.toLowerCase()
+      );
+    } else {
+      this.filteredProducts = [...this.products];
     }
   }
 

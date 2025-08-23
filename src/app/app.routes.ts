@@ -12,7 +12,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/store/store.component').then((m) => m.StoreComponent),
   },
-  { path: 'store/:category', component: StoreComponent },
+  // { path: 'store', component: StoreComponent },
+  { path: 'store/category/:category', component: StoreComponent },
+  { path: 'store/material/:material', component: StoreComponent },
+
   {
     path: 'login',
     loadComponent: () =>

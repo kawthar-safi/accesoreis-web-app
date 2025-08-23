@@ -5,7 +5,8 @@
       "name": "Elegant Gold Ring",
       "price": 120.5,
       "category": "Rings",
-      "image": "https://example.com/images/ring1.jpg",
+      "material": "Gold",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
       "description": "A classic elegant gold ring perfect for special occasions.",
       "clientid": "k11"
     },
@@ -14,6 +15,7 @@
       "name": "Silver Diamond Ring",
       "price": 150,
       "category": "Rings",
+      "material": "Silver",
       "image": "https://example.com/images/ring2.jpg",
       "description": "Shiny silver ring embedded with a small diamond for extra sparkle.",
       "clientid": "k11"
@@ -23,6 +25,7 @@
       "name": "Classic Pearl Earrings",
       "price": 80,
       "category": "Earrings",
+      "material": "Pearl",
       "image": "https://example.com/images/earring1.jpg",
       "description": "Elegant pearl earrings that add timeless charm to your look.",
       "clientid": "k11"
@@ -32,6 +35,7 @@
       "name": "Crystal Drop Earrings",
       "price": 95.25,
       "category": "Earrings",
+      "material": "Crystal",
       "image": "https://example.com/images/earring2.jpg",
       "description": "Stylish crystal earrings with a delicate drop design.",
       "clientid": "k11"
@@ -41,6 +45,7 @@
       "name": "Leather Charm Bracelet",
       "price": 60,
       "category": "Bracelets",
+      "material": "Leather",
       "image": "https://example.com/images/bracelet1.jpg",
       "description": "Trendy leather bracelet with multiple small charms.",
       "clientid": "k11"
@@ -50,6 +55,7 @@
       "name": "Gold Chain Bracelet",
       "price": 110,
       "category": "Bracelets",
+      "material": "Gold",
       "image": "https://example.com/images/bracelet2.jpg",
       "description": "Elegant gold chain bracelet suitable for everyday wear.",
       "clientid": "k11"
@@ -58,6 +64,7 @@
       "id": "7",
       "name": "Heart Pendant Necklace",
       "price": 130.75,
+      "material": "Silver",
       "category": "Necklaces",
       "image": "https://example.com/images/necklace1.jpg",
       "description": "Romantic necklace featuring a heart-shaped pendant.",
@@ -68,29 +75,47 @@
       "name": "Vintage Pearl Necklace",
       "price": 145,
       "category": "Necklaces",
-      "image": "https://example.com/images/necklace2.jpg",
+      "material": "Pearl",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
       "description": "Vintage-style necklace with elegant white pearls.",
       "clientid": "k11"
     }
   ],
   "favorites": [
     {
-      "id": "8",
-      "name": "Vintage Pearl Necklace",
-      "price": 145,
-      "category": "Necklaces",
-      "image": "https://example.com/images/necklace2.jpg",
-      "description": "Vintage-style necklace with elegant white pearls.",
+      "id": "1",
+      "name": "Elegant Gold Ring",
+      "price": 120.5,
+      "category": "Rings",
+      "material": "Gold",
+      "image": "https://example.com/images/ring1.jpg",
+      "description": "A classic elegant gold ring perfect for special occasions.",
       "clientid": "k11"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "kawthar",
+      "email": "G5E7S@example.com",
+      "password": "118K@wthar",
+      "usertype": "client"
     },
     {
-      "id": "4",
-      "name": "Crystal Drop Earrings",
-      "price": 95.25,
-      "category": "Earrings",
-      "image": "https://example.com/images/earring2.jpg",
-      "description": "Stylish crystal earrings with a delicate drop design.",
-      "clientid": "k11"
+      "id": "2",
+      "name": "John Doe",
+      "email": "G5E7S@example.com",
+      "password": "password123",
+      "usertype": "customer"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "G5E7S@example.com",
+      "password": "password123",
+      "address": "123 Main St, Anytown, USA"
     }
   ]
 }

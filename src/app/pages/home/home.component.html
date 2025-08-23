@@ -57,21 +57,18 @@
     <button
       class="element-card"
       *ngFor="let el of elements"
-      (click)="selectElement()"
+      (click)="selectElement(el)"
       type="button"
     >
-      <i class="bi" [ngClass]="el.icon"></i>
+      <i [class]="el.icon" class="element-icon"></i>
       <div class="label">{{ el.name }}</div>
+      <p class="desc">{{ "desc." + el.name | translate }}</p>
     </button>
   </div>
 </div>
 <div class="featured-gem-section">
   <div class="featured-gem-content">
-    <img
-      src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1751222643/high-angle-aesthetic-golden-earrings_bmlqkd.jpg"
-      alt="Jewel of the Day"
-      class="featured-gem-img"
-    />
+    <img [src]="jewelOfTheDay.image" alt="{{ jewelOfTheDay.name }}" />
 
     <div class="featured-gem-info">
       <h3>Jewel of the Day</h3>
@@ -80,7 +77,7 @@
         selected to add a unique touch to your look. A distinctive piece with a
         sophisticated design that suits all styles.
       </p>
-      <button class="shop-now-btn">Shop Now</button>
+      <button class="shop-now-btn" routerLink="/store">Shop Now</button>
     </div>
   </div>
 </div>
@@ -187,10 +184,14 @@
           <video #video autoplay playsinline muted></video>
 
           <!-- Ring Overlay -->
-          <img src="" class="ring-overlay" alt="Ring Overlay" />
+          <img
+            src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1755713404/Earring_Engagement_Ring_Wedding_Ring_Jewellery_PNG-removebg-preview_shqrez.png"
+            class="ring-overlay"
+            alt="Ring Overlay"
+          />
 
           <!-- Hand Guide -->
-          <img src="" class="hand-guide" alt="Hand Guide" />
+          <!-- <img src="" class="hand-guide" alt="Hand Guide" /> -->
         </div>
       </div>
     </div>

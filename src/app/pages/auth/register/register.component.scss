@@ -1,0 +1,145 @@
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #523f2e;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Form Side */
+.form-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ede6db;
+  padding: 3rem 2rem;
+}
+
+.sign-up-form {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-form h1 {
+  font-size: 2.2rem;
+  color: #523f2e;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.sign-up-form input {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #c4a46c;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s all;
+}
+
+.sign-up-form input:focus {
+  border-color: #523f2e;
+  box-shadow: 0 0 5px rgba(196, 164, 108, 0.5);
+}
+
+.sign-up-form small {
+  color: #d9534f;
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Password toggle icon */
+.input-wrapper {
+  position: relative;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #523f2e;
+}
+
+/* Submit Button */
+.sign-up-form button {
+  background-color: var(--soft-gold);
+  color: #523f2e;
+  font-weight: 600;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.sign-up-form button:hover:enabled {
+  background-color: #c4a46c;
+}
+
+.sign-up-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Info Side */
+.info-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   background: url("assets/image/signup-bg.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 2rem;
+  position: relative;
+}
+
+.info-content {
+  background-color: rgba(82, 63, 46, 0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+}
+
+.info-content img.logo {
+  width: 120px;
+  margin-bottom: 1.5rem;
+}
+
+.info-content h2 {
+  font-size: 2rem;
+  color: var(--soft-gold);
+  margin-bottom: 1rem;
+}
+
+.info-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f7f7f7;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .form-side,
+  .info-side {
+    flex: unset;
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .info-content {
+    max-width: 90%;
+  }
+}
