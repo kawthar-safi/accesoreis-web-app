@@ -36,7 +36,7 @@
       </div>
 
       <div class="input-wrapper">
-        <!-- <input
+        <input
           [type]="showPassword ? 'text' : 'password'"
           formControlName="password"
           [placeholder]="'custumer-signUp.password' | translate"
@@ -46,31 +46,34 @@
           class="ri-eye-line toggle-icon"
           *ngIf="!showPassword"
           (click)="togglePasswordVisibility()"
+          (keydown.enter)="togglePasswordVisibility()"
+          tabindex="0"
         ></i>
         <i
           class="ri-eye-close-line toggle-icon"
           *ngIf="showPassword"
           (click)="togglePasswordVisibility()"
+          (keydown.enter)="togglePasswordVisibility()"
+          tabindex="0"
         ></i>
-      </div> -->
-        <div
-          *ngIf="
-            form.controls['password'].touched &&
-            form.controls['password'].invalid
-          "
-        >
-          <small *ngIf="form.controls['password'].errors?.['required']">{{
-            "massages.passwordRequired" | translate
-          }}</small>
-          <small *ngIf="form.controls['password'].errors?.['minlength']">{{
-            "editprofileCustomer.Minimum 5 characters" | translate
-          }}</small>
-          <small *ngIf="form.controls['password'].errors?.['pattern']">
-            {{ "massages.passwordPattern" | translate }}
-          </small>
-        </div>
+      </div>
+      <div
+        *ngIf="
+          form.controls['password'].touched && form.controls['password'].invalid
+        "
+      >
+        <small *ngIf="form.controls['password'].errors?.['required']">{{
+          "massages.passwordRequired" | translate
+        }}</small>
+        <small *ngIf="form.controls['password'].errors?.['minlength']">{{
+          "editprofileCustomer.Minimum 5 characters" | translate
+        }}</small>
+        <small *ngIf="form.controls['password'].errors?.['pattern']">
+          {{ "massages.passwordPattern" | translate }}
+        </small>
+      </div>
 
-        <!-- <div class="input-wrapper">
+      <div class="input-wrapper">
         <input
           [type]="showConfirmPassword ? 'text' : 'password'"
           formControlName="confirmPassword"
@@ -81,82 +84,73 @@
           class="ri-eye-line toggle-icon"
           *ngIf="!showConfirmPassword"
           (click)="toggleConfirmPasswordVisibility()"
+          (keydown.enter)="toggleConfirmPasswordVisibility()"
+          tabindex="0"
         ></i>
         <i
           class="ri-eye-close-line toggle-icon"
           *ngIf="showConfirmPassword"
           (click)="toggleConfirmPasswordVisibility()"
+          (keydown.enter)="toggleConfirmPasswordVisibility()"
+          tabindex="0"
         ></i>
-      </div> -->
-
-        <div
-          *ngIf="
-            form.get('confirmPassword')?.touched &&
-            form.get('confirmPassword')?.invalid
-          "
-        >
-          <small *ngIf="form.get('confirmPassword')?.errors?.['required']">
-            {{ "massages.confirmPasswordRequired" | translate }}
-          </small>
-        </div>
-
-        <div
-          *ngIf="form.errors?.['passwordMismatch'] && form.get('confirmPassword')?.touched"
-        >
-          <small>{{ "massages.passwordsNotMatch" | translate }}</small>
-        </div>
-
-        <input
-          type="text"
-          formControlName="phone"
-          [placeholder]="'custumer-signUp.phoneNumber' | translate"
-        />
-        <div
-          *ngIf="
-            form.controls['phone'].touched && form.controls['phone'].invalid
-          "
-        >
-          <small *ngIf="form.controls['phone'].errors?.['required']">{{
-            "massages.phoneRequired" | translate
-          }}</small>
-          <small *ngIf="form.controls['phone'].errors?.['pattern']">
-            {{ "massages.phoneInvalid" | translate }}</small
-          >
-        </div>
-
-        <input
-          type="text"
-          formControlName="address"
-          [placeholder]="'custumer-signUp.address' | translate"
-        />
-        <div
-          *ngIf="
-            form.controls['address'].touched && form.controls['address'].invalid
-          "
-        >
-          <small *ngIf="form.controls['address'].errors?.['required']">{{
-            "massages.addressRequired" | translate
-          }}</small>
-          <small *ngIf="form.controls['address'].errors?.['minlength']">{{
-            "editprofileCustomer.Minimum 5 characters" | translate
-          }}</small>
-        </div>
-
-        <button type="submit" [disabled]="form.invalid">
-          {{ "custumer-signUp.createAccount" | translate }}
-        </button>
-        <!-- </form> -->
       </div>
-      <div class="info-side">
-        <div class="info-content">
-          <a routerLink="/">
-            <img src="assets/image/ghosn home-01.png" class="logo" alt="logo" />
-          </a>
-          <h2>{{ "custumer-signUp.welcomeTitle" | translate }}</h2>
-          <p>{{ "custumer-signUp.welcomeParagraph1" | translate }}</p>
-        </div>
+
+      <div
+        *ngIf="
+          form.get('confirmPassword')?.touched &&
+          form.get('confirmPassword')?.invalid
+        "
+      >
+        <small *ngIf="form.get('confirmPassword')?.errors?.['required']">
+          {{ "massages.confirmPasswordRequired" | translate }}
+        </small>
       </div>
-      <!-- </div> -->
+
+      <div
+        *ngIf="form.errors?.['passwordMismatch'] && form.get('confirmPassword')?.touched"
+      >
+        <small>{{ "massages.passwordsNotMatch" | translate }}</small>
+      </div>
+
+      <input
+        type="text"
+        formControlName="phone"
+        [placeholder]="'custumer-signUp.phoneNumber' | translate"
+      />
+      <div
+        *ngIf="form.controls['phone'].touched && form.controls['phone'].invalid"
+      >
+        <small *ngIf="form.controls['phone'].errors?.['required']">{{
+          "massages.phoneRequired" | translate
+        }}</small>
+        <small *ngIf="form.controls['phone'].errors?.['pattern']">
+          {{ "massages.phoneInvalid" | translate }}</small
+        >
+      </div>
+
+      <input
+        type="text"
+        formControlName="address"
+        [placeholder]="'custumer-signUp.address' | translate"
+      />
+      <div
+        *ngIf="
+          form.controls['address'].touched && form.controls['address'].invalid
+        "
+      >
+        <small *ngIf="form.controls['address'].errors?.['required']">{{
+          "massages.addressRequired" | translate
+        }}</small>
+        <small *ngIf="form.controls['address'].errors?.['minlength']">{{
+          "editprofileCustomer.Minimum 5 characters" | translate
+        }}</small>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid">
+        {{ "custumer-signUp.createAccount" | translate }}
+      </button>
+      <!-- </form> -->
 
       <!-- <p-toast></p-toast> -->
     </form>

@@ -1,0 +1,116 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #523f2e; // نفس خلفية الـ auth-page
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+
+.form-container {
+  background-color: #ede6db;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+  margin-bottom: 1.5rem;
+}
+
+.title p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #523f2e;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #c4a46c;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s all;
+  background-color: #fff;
+}
+
+.form input:focus {
+  border-color: #523f2e;
+  box-shadow: 0 0 5px rgba(196, 164, 108, 0.5);
+}
+
+.form small {
+  color: #d9534f;
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Password wrapper */
+.input-wrapper {
+  position: relative;
+}
+
+.password-input {
+  width: 100%;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #523f2e;
+}
+
+/* Submit Button */
+.signInbutton button {
+  background-color: var(--soft-gold);
+  color: #523f2e;
+  font-weight: 600;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s all;
+  width: 100%;
+}
+
+.signInbutton button:hover:enabled {
+  background-color: #c4a46c;
+}
+
+.signInbutton button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .form-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .title p {
+    font-size: 1.1rem;
+  }
+}

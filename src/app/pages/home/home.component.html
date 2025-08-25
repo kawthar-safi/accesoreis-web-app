@@ -66,10 +66,9 @@
     </button>
   </div>
 </div>
-<div class="featured-gem-section">
+<div class="featured-gem-section" *ngIf="jewelOfTheDay">
   <div class="featured-gem-content">
     <img [src]="jewelOfTheDay.image" alt="{{ jewelOfTheDay.name }}" />
-
     <div class="featured-gem-info">
       <h3>Jewel of the Day</h3>
       <p>
