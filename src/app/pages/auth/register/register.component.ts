@@ -21,6 +21,8 @@ import { AuthService } from '../../../service/auth.service';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
+  showPassword = false;
+  showConfirmPassword = false;
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   // private messageService = inject(MessageService);
@@ -49,34 +51,47 @@ export class RegisterComponent {
   );
 
   onSubmit() {
-    // if (this.form.valid) {
-    //   this.authService.signUpCustomer(this.form.value).subscribe({
-    //     next: () => {
-    //       this.form.reset();
-    //       this.router.navigate(['/signin']);
-    //     },
-    //     // error: () => {
-    //     //   this.showError();
-    //     // },
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const formValue = this.form.value;
+
+    const newUser = {
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      name: formValue.name!,
+      email: formValue.email!,
+      password: formValue.password!,
+      usertype: 'customer',
+      phone: formValue.phone!,
+      address: formValue.address!,
+    };
+
+    this.authService.register(newUser).subscribe({
+      next: () => {
+        this.form.reset();
+        this.router.navigate(['/login']);
+      },
+      error: () => {
+        alert('Email already exists');
+        // this.showError();
+      },
+    });
+    //   showError() {
+    //   this.messageService.add({
+    //     severity: 'error',
+    //     summary: this.i18nService.t('messageServicetranslate.error'),
+    //     detail: this.i18nService.t('messageServicetranslate.emialexist'),
     //   });
     // }
   }
-
-  // togglePasswordVisibility() {
-  //   this.showPassword = !this.showPassword;
-  // }
-
-  // toggleConfirmPasswordVisibility() {
-  //   this.showConfirmPassword = !this.showConfirmPassword;
-  // }
-
-  // showError() {
-  //   this.messageService.add({
-  //     severity: 'error',
-  //     summary: this.i18nService.t('messageServicetranslate.error'),
-  //     detail: this.i18nService.t('messageServicetranslate.emialexist'),
-  //   });
-  // }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  toggleConfirmPasswordVisibility() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
 }
 export function passwordMatchValidator(
   form: AbstractControl

@@ -1,14 +1,105 @@
 <div class="login-container">
-  <h2>Login</h2>
-  <!-- <form [formGroup]="loginForm">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" />
+  <div class="form-container">
+    <div class="logo">
+      <a routerLink="/">
+        <img src="assets/images/Wod.png" alt="logo" class="logo" />
+      </a>
     </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password" />
+    <div class="title">
+      <p>
+        {{ "signIn.subtitle" | translate }}
+      </p>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="form">
+      <div class="email">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="{{ 'signIn.email' | translate }}"
+        />
+        <div
+          *ngIf="
+            loginForm.controls['email']?.invalid &&
+            loginForm.controls['email']?.touched
+          "
+        >
+          <small>{{ "signIn.emailRequired" | translate }}</small>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          [placeholder]="'custumer-signUp.password' | translate"
+          class="password-input"
+        />
+        <i
+          class="ri-eye-line toggle-icon"
+          *ngIf="!showPassword"
+          (click)="togglePasswordVisibility()"
+          (keydown.enter)="togglePasswordVisibility()"
+          tabindex="0"
+        ></i>
+        <i
+          class="ri-eye-close-line toggle-icon"
+          *ngIf="showPassword"
+          (click)="togglePasswordVisibility()"
+          (keydown.enter)="togglePasswordVisibility()"
+          tabindex="0"
+        ></i>
+      </div>
+      <div
+        *ngIf="
+          loginForm.controls['password'].touched &&
+          loginForm.controls['password'].invalid
+        "
+      >
+        <small *ngIf="loginForm.controls['password'].errors?.['required']">{{
+          "massages.passwordRequired" | translate
+        }}</small>
+        <small *ngIf="loginForm.controls['password'].errors?.['minlength']">{{
+          "editprofileCustomer.Minimum 5 characters" | translate
+        }}</small>
+        <small *ngIf="loginForm.controls['password'].errors?.['pattern']">
+          {{ "massages.passwordPattern" | translate }}
+        </small>
+      </div>
+      <div class="register">
+        <p>
+          {{ "signIn.dontHaveAccount" | translate }}
+          <a routerLink="/register">{{ "signIn.createAccount" | translate }}</a>
+        </p>
+      </div>
+      <div class="signInbutton">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="loginForm.invalid"
+          (click)="onLogin()"
+        >
+          {{ "signIn.title" | translate }}
+        </button>
+      </div>
+    </form>
+    <!-- 
+    <div class="register">
+      <p>
+        {{ "signIn.dontHaveAccount" | translate }}
+        <a routerLink="/signup">{{ "signIn.createAccount" | translate }}</a>
+      </p>
+    </div>
+  </div>
+  <div class="image-container">
+    <div class="text">
+      <h1>
+        <span>{{ "signIn.welcomeText" | translate }}</span
+        ><br />
+        {{ "signIn.description" | translate }}
+      </h1>
+      <p>
+        {{ "signIn.dontHaveAccount" | translate }}
+        <a routerLink="/signup">{{ "signIn.createAccount" | translate }}</a>
+      </p>
     </div> -->
-    <!-- <button type="submit" (click)="login()">Login</button> -->
-  <!-- </form> -->
+  </div>
 </div>
