@@ -31,11 +31,22 @@
         data-bs-toggle="modal"
         data-bs-target="#myModal"
       ></i>
-      <i
-        class="bi bi-bag"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
-      ></i>
+      <div class="cart-icon-wrapper">
+        <i
+          class="bi bi-bag"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+        ></i>
+
+        <!-- العدد -->
+        <span
+          class="cart-count"
+          *ngIf="cartCount$ | async as count"
+          [hidden]="count === 0"
+        >
+          {{ count }}
+        </span>
+      </div>
       <i class="bi bi-person" routerLink="/user-profile"></i>
     </div>
   </div>
@@ -107,7 +118,52 @@
         aria-label="Close"
       ></button>
     </div>
-    <div class="offcanvas-body">...</div>
+    <div class="offcanvas-body">
+      <div
+        class="cart-container"
+        *ngIf="(cartItems$ | async)?.length; else emptyCart"
+      >
+        <div class="cart-items-scroll">
+          <div class="cart-item" *ngFor="let item of cartItems$ | async">
+            <img [src]="item.image" alt class="item-image" />
+            <div class="item-info">
+              <p class="item-name">{{ item.name }}</p>
+              <p class="item-price">
+                {{ item.quantity }} × {{ item.price | number : "1.2-2" }}
+              </p>
+            </div>
+            <button class="delete-btn" (click)="removeItem(item)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="cart-footer">
+          <div class="cart-summary">
+            <p>
+              {{ "drawer.Subtotal" | translate }}:
+              <span class="total">{{ getTotal() | number : "1.2-2" }}</span>
+            </p>
+          </div>
+          <button class="view-cart-btn" (click)="goToCart()">
+            {{ "drawer.button" | translate }}
+          </button>
+        </div>
+      </div>
+
+      <ng-template #emptyCart>
+        <div class="empty-cart">
+          <p>{{ "drawer.noItem" | translate }}</p>
+          <img
+            src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1748620413/emp_s7lwqw.png"
+            alt
+          />
+          <button class="view-cart-btn" (click)="gotostore()">
+            {{ "drawer.shopnow" | translate }}
+          </button>
+        </div>
+      </ng-template>
+    </div>
   </div>
   <nav class="nav-links">
     <a routerLink="/">{{ "header.Home" | translate }}</a>
