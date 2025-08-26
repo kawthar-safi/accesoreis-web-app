@@ -1,11 +1,12 @@
 import { FavoritesService } from './../../service/favorites.service';
 import { Component, inject, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Products } from '../../shared/model/product';
+import { CartItem, Products } from '../../shared/model/product';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AccesoreisService } from '../../service/accesoreis.service';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-store',
@@ -28,13 +29,12 @@ export class StoreComponent implements OnInit {
   private productService = inject(AccesoreisService);
   private favoriteService = inject(FavoritesService);
   favoriteStatus = false;
+  private cartService = inject(CartService);
 
   ngOnInit(): void {
-    // جلب المنتجات أولاً
     this.productService.getAccesoreis().subscribe((data) => {
       this.products = data;
 
-      // استمع للـ params بعد ما يجي المنتجات
       this.route.paramMap.subscribe((params) => {
         const category = params.get('category');
         const material = params.get('material');
@@ -46,7 +46,6 @@ export class StoreComponent implements OnInit {
           this.selectedMaterial = material;
           this.filterByMaterial();
         } else {
-          // اذا ما في باراميتر اعرض الكل
           this.filteredProducts = [...this.products];
         }
       });
@@ -78,6 +77,7 @@ export class StoreComponent implements OnInit {
 
   goToProduct(product: Products) {
     alert(`You clicked on: ${product.name}`);
+    // this.router.navigate(['product', product.id]);
   }
 
   private capitalize(value: string): string {
@@ -86,7 +86,12 @@ export class StoreComponent implements OnInit {
   addToFavorites() {
     alert('Added to favorites');
   }
-  addToCart() {
+  addToCart(product: Products) {
+    const item: CartItem = {
+      ...product,
+      quantity: 1,
+    };
+    this.cartService.addToCart(item);
     alert('Added to cart');
   }
   toggleFavorite(product: Products) {

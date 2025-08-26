@@ -8,3 +8,6 @@ export interface Products {
   clientid: string;
   description: string;
 }
+export interface CartItem extends Products {
+  quantity: number; // بكون إلزامي هون
+}

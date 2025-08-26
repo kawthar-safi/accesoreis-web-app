@@ -91,6 +91,16 @@
       "image": "https://example.com/images/ring1.jpg",
       "description": "A classic elegant gold ring perfect for special occasions.",
       "clientid": "k11"
+    },
+    {
+      "id": "3",
+      "name": "Classic Pearl Earrings",
+      "price": 80,
+      "category": "Earrings",
+      "material": "Pearl",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+      "description": "Elegant pearl earrings that add timeless charm to your look.",
+      "clientid": "k11"
     }
   ],
   "users": [
@@ -109,28 +119,28 @@
       "usertype": "customer"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "kawtharsafi",
       "email": "kawtharsafi@gmail.com",
       "password": "$2b$10$go10l5r8qaN8s4yjQPMZ.uuvvtnpqhglsRQJcCl9f7T3.MiIqVwOW",
       "usertype": "customer"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "kawthar",
       "email": "test@gmail.com",
       "password": "$2b$10$6Sux6aP3Zw8Ik9AbPt/sQugion0Q7o0ROOcU/pBmdCyFN8QDcfooq",
       "usertype": "customer"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "kawthar",
       "email": "te3st@gmail.com",
       "password": "$2b$10$TP27oOkocwVBOi2z0JgT3OCiqydH.er12YXXMjAyhLw1Sr9JBMpV.",
       "usertype": "customer"
     },
     {
-      "id": 0,
+      "id": "0",
       "name": "xffffx",
       "email": "test123@gmail.com",
       "password": "$2b$10$AvSUVbLIigFpEHklLyeIR.1ifjym3stH3I41X4WWBNbtmV7rOJom.",
