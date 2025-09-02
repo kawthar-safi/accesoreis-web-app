@@ -46,7 +46,7 @@
   gap: 4rem;
 }
 
-.featured-gem-img {
+.featured-gem-content img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -90,7 +90,7 @@
 .collection-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 4rem;
   justify-content: center;
   padding: 3rem 1.5rem;
   background-color: #5c4533;
@@ -368,7 +368,7 @@ video {
     0deg,
     transparent,
     transparent 30%,
-    rgba(196, 164, 108, 0.3)
+    rgba(196, 164, 108, 0.697)
   );
   transform: rotate(-45deg);
   transition: all 0.6s ease;
@@ -377,7 +377,7 @@ video {
 
 .element-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(196, 164, 108, 0.5);
+  box-shadow: 0 0 25px rgba(196, 164, 108, 0.822);
 }
 
 .element-card:hover::before {
@@ -418,4 +418,18 @@ video {
   .featured-gem-info p {
     font-size: 1rem;
   }
+}
+.explore-btn {
+  margin-top: 1rem;
+
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--soft-gold);
+  transition: background-color 0.3s ease;
+}
+.explore-btn:hover {
+  color: var(--cream-bg);
 }

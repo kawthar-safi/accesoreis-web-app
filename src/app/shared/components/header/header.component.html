@@ -145,7 +145,11 @@
               <span class="total">{{ getTotal() | number : "1.2-2" }}</span>
             </p>
           </div>
-          <button class="view-cart-btn" (click)="goToCart()">
+          <button
+            class="view-cart-btn"
+            data-bs-dismiss="offcanvas"
+            (click)="goToCart()"
+          >
             {{ "drawer.button" | translate }}
           </button>
         </div>
@@ -158,7 +162,11 @@
             src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1748620413/emp_s7lwqw.png"
             alt
           />
-          <button class="view-cart-btn" (click)="gotostore()">
+          <button
+            class="view-cart-btn"
+            data-bs-dismiss="offcanvas"
+            (click)="gotostore()"
+          >
             {{ "drawer.shopnow" | translate }}
           </button>
         </div>

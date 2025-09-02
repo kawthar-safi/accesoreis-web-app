@@ -75,10 +75,10 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  goToProduct(product: Products) {
-    alert(`You clicked on: ${product.name}`);
-    // this.router.navigate(['product', product.id]);
-  }
+  // goToProduct(product: Products) {
+  //   alert(`You clicked on: ${product.name}`);
+  //   // this.router.navigate(['product', product.id]);
+  // }
 
   private capitalize(value: string): string {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();

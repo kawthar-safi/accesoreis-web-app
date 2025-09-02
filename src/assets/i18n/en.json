@@ -38,5 +38,43 @@
     "createAccount": "Create one now",
     "welcomeText": "Start your green journey today",
     "description": "Discover the joy of plants and create your own natural space."
+  },
+
+  "drawer": {
+    "cart": "Cart",
+    "Subtotal": "Subtotal",
+    "button": "View cart",
+    "emptyCart": "Your cart is empty",
+    "noItem": "No Item in the cart",
+    "shopnow": "Shop Now"
+  },
+  "store": {
+    "addTocart": "Add to cart",
+    "moreDetails": "More Details"
+  },
+  "cart": {
+    "item": "Items",
+    "button": "Buy Now",
+    "summry": "Summary",
+    "delivery fee": "Delivery fees",
+    "payment method": "Select Payment Method",
+    "Cash on Delivery": "Cash on Delivery",
+    "Credit/Debit Card": "Credit/Debit Card",
+    "ZainCash": "ZainCash",
+    "eFAWATEERcom": "eFAWATEERcom",
+    "emptyCart1": "Your cart is empty!!",
+    "emptyCart2": "Discover timeless pieces to complete your look",
+    "shop now": "Shop Now"
+  },
+  "orders": {
+    "processing": "Processing",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "NoOrders": "No order has been made yet",
+    "button": "  Browse products",
+    "pending": "Pending",
+    "Jd": "JD",
+    "total": "Total",
+    "order": "Order"
   }
 }

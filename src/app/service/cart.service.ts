@@ -37,7 +37,7 @@ export class CartService {
   }
 
   addToCart(item: CartItem) {
-    const current = this.loadCart();
+    const current = this.cartItems.value;
     const index = current.findIndex((i) => i.id === item.id);
 
     if (index > -1) {
@@ -49,7 +49,10 @@ export class CartService {
       });
     }
 
-    this.saveCart(current);
+    this.cartItems.next(current);
+    this.cartCount.next(this.calculateTotalCount(current));
+
+    localStorage.setItem(CART_KEY, JSON.stringify(current));
   }
 
   removeFromCart(productId: number) {

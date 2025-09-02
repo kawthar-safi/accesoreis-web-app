@@ -17,9 +17,6 @@
     <div
       class="collection-card"
       *ngFor="let product of filteredProducts"
-      (click)="goToProduct(product)"
-      (keydown.enter)="goToProduct(product)"
-      tabindex="0"
       role="button"
     >
       <img [src]="product.image" alt="{{ product.name }}" />
@@ -28,20 +25,24 @@
       <div class="price-fav-cart-container">
         <p class="price">{{ product.price | currency }}</p>
         <div class="icons">
-          <button (click)="toggleFavorite(product)">
-            <span
-              [ngClass]="{
-                favorite: isFavorite(product),
-                'not-favorite': !isFavorite(product)
-              }"
+          <div class="action-icons">
+            <!-- Favorite -->
+            <button
+              (click)="toggleFavorite(product)"
+              aria-label="Add to favorites"
             >
-              {{ isFavorite(product) ? "❤️" : "🤍" }}
-            </span>
-          </button>
+              <i
+                class="bi"
+                [ngClass]="isFavorite(product) ? 'bi-heart-fill' : 'bi-heart'"
+              ></i>
+            </button>
+
+            <!-- Cart -->
+            <button (click)="addToCart(product)" aria-label="Add to cart">
+              <i class="bi bi-cart"></i>
+            </button>
+          </div>
         </div>
-        <button (click)="addToCart(product)">
-          <i class="bi bi-cart"></i>
-        </button>
       </div>
     </div>
   </div>

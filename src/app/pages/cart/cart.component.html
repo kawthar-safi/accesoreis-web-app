@@ -1,0 +1,148 @@
+<div class="cart-page" *ngIf="cartItems.length > 0; else emptyCart">
+  <h1 class="cart-title">Your cart</h1>
+  <div class="cart-container">
+    <!-- 🛒 Items Section -->
+    <div class="items-list">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <!-- صورة المنتج -->
+        <div class="item-img-wrapper">
+          <img [src]="item.image" alt="{{ item.name }}" class="item-img" />
+        </div>
+
+        <!-- تفاصيل + كونترول -->
+        <div class="item-body">
+          <div class="item-details">
+            <h4 class="item-name">{{ item.name }}</h4>
+            <p class="item-price">
+              <span>{{ item.quantity }}</span> x
+              {{ item.price | number : "1.2-2" }}
+              {{ "orders.Jd" | translate }}
+            </p>
+          </div>
+          <div class="quantity-control">
+            <button (click)="decreaseQuantity(item)">−</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increaseQuantity(item)">+</button>
+          </div>
+          <button class="remove-btn" (click)="removeItem(item)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 🎁 Gift Box Section -->
+      <div class="gift-box">
+        <h3>Add gift box to your order (2 JD)</h3>
+        <div class="gift-box-content">
+          <img
+            src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1756808200/box_g3ar7x.png"
+            alt="Gift Box"
+          />
+          <textarea
+            placeholder="Add your gift note here and we will write it on a card for you"
+          ></textarea>
+        </div>
+        <button class="black-btn">Add Gift Box</button>
+      </div>
+
+      <!-- 📝 Special Instructions -->
+      <div class="special-instructions">
+        <h3>Order special instructions</h3>
+        <textarea></textarea>
+      </div>
+    </div>
+
+    <!-- 📦 Summary Section -->
+    <div class="summary-box">
+      <h3>Order Summary</h3>
+
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span>{{ getSubtotal() | number : "1.2-2" }} JOD</span>
+      </div>
+
+      <div class="summary-line">
+        <span>Delivery Fee</span>
+        <span>{{ deliveryFee | number : "1.2-2" }} JOD</span>
+      </div>
+
+      <hr />
+
+      <div class="summary-total">
+        <strong>Total</strong>
+        <strong>{{ getTotal() | number : "1.2-2" }} JOD</strong>
+      </div>
+
+      <div class="payment-methods">
+        <h4>{{ "cart.payment method" | translate }}</h4>
+
+        <div class="payment-option">
+          <input
+            type="radio"
+            name="payment"
+            id="cod"
+            value="cod"
+            [(ngModel)]="selectedPaymentMethod"
+          />
+          <label for="cod">💵 {{ "cart.Cash on Delivery" | translate }}</label>
+        </div>
+
+        <div class="payment-option">
+          <input
+            type="radio"
+            name="payment"
+            id="card"
+            value="card"
+            [(ngModel)]="selectedPaymentMethod"
+          />
+          <label for="card"
+            >💳 {{ "cart.Credit/Debit Card" | translate }}</label
+          >
+        </div>
+
+        <div class="payment-option">
+          <input
+            type="radio"
+            name="payment"
+            id="zaincash"
+            value="zaincash"
+            [(ngModel)]="selectedPaymentMethod"
+          />
+          <label for="zaincash">📱 {{ "cart.ZainCash" | translate }}</label>
+        </div>
+
+        <div class="payment-option">
+          <input
+            type="radio"
+            name="payment"
+            id="efawateer"
+            value="efawateer"
+            [(ngModel)]="selectedPaymentMethod"
+          />
+          <label for="efawateer"
+            >💻 {{ "cart.eFAWATEERcom" | translate }}</label
+          >
+        </div>
+        <button class="checkout-btn" (click)="submitOrder()">
+          {{ "cart.button" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <h1>{{ "cart.emptyCart1" | translate }}</h1>
+    <p>{{ "cart.emptyCart2" | translate }}</p>
+    <button class="view-cart-btn" (click)="gotostore()">
+      {{ "cart.button" | translate }}
+    </button>
+    <div>
+      <img
+        src="https://res.cloudinary.com/ddsrofo4o/image/upload/c_crop,h_1000,g_auto/v1756810859/golden-shopping-cart-white-glitter-black-background_fhww0c.png"
+        alt="Empty Cart"
+      />
+    </div>
+  </div>
+</ng-template>
