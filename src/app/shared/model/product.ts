@@ -5,9 +5,9 @@ export interface Products {
   category: string;
   material: string;
   image: string;
-  clientid: string;
+  clientid?: string;
   description: string;
 }
 export interface CartItem extends Products {
-  quantity: number; // بكون إلزامي هون
+  quantity: number;
 }

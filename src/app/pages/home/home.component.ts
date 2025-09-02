@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../shared/pipes/translate.pipe';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, RouterLink } from '@angular/router';
 
 import { ElementCard } from '../../shared/model/card';
 import { Products } from '../../shared/model/product';
@@ -16,7 +16,7 @@ import { AccesoreisService } from '../../service/accesoreis.service';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, TranslatePipe, RouterModule],
+  imports: [CommonModule, TranslatePipe, RouterModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -36,7 +36,6 @@ export class HomeComponent implements AfterViewInit, OnInit {
       icon: 'bi-fire',
       value: 'fire',
       material: 'Gold',
-
       desc: 'Bold & radiant like flames',
     },
     {
@@ -59,6 +58,36 @@ export class HomeComponent implements AfterViewInit, OnInit {
       value: 'air',
       material: 'Silver',
       desc: 'Light & dazzling brilliance',
+    },
+  ];
+  collections = [
+    {
+      name: 'Rings Collection',
+      description: 'Discover timeless rings designed for every occasion.',
+      image:
+        'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756851147/Dainty_Rings_kwyfza.jpg',
+      link: '/store/category/rings',
+    },
+    {
+      name: 'Earrings Collection',
+      description: 'Elegant earrings to add sparkle to your style.',
+      image:
+        'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756852157/download_7_pgxrjq.jpg',
+      link: '/store/earrings',
+    },
+    {
+      name: 'Wedding Collection',
+      description: 'Celebrate love with our special wedding pieces.',
+      image:
+        'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756853037/dareth_colburn_xzfwry.jpg',
+      // link: '/store/wedding',
+    },
+    {
+      name: 'Special Collection',
+      description: 'Shine bright with our premium special pieces.',
+      image:
+        'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756852777/Copilot_20250903_013929_vysjgz.png',
+      // link: '/store/diamond',
     },
   ];
 
@@ -114,16 +143,9 @@ export class HomeComponent implements AfterViewInit, OnInit {
     }
   }
   ngOnInit(): void {
-    if (
-      window.location.hostname === 'localhost' &&
-      window.location.port === '4200'
-    ) {
-      localStorage.clear();
-    }
     this.productService.getAccesoreis().subscribe((data: Products[]) => {
       this.products = data;
 
-      // حدد المنتج حسب اليوم (أو عشوائي)
       const todayIndex = new Date().getDate() % this.products.length;
       this.jewelOfTheDay = this.products[todayIndex];
     });

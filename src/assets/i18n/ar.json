@@ -38,5 +38,42 @@
     "createAccount": "إنشاء حساب جديد",
     "welcomeText": "ابدأ رحلتك الخضراء اليوم",
     "description": "اكتشف متعة النباتات واصنع لنفسك مساحة طبيعية تنبض بالحياة"
+  },
+  "drawer": {
+    "cart": "سلة المشتريات",
+    "Subtotal": "المجموع الفرعي",
+    "button": "عرض السلة",
+    "emptyCart": "السلة فارغة",
+    "noItem": "لا يوجد عنصر في السلة",
+    "shopnow": "تسوق الان"
+  },
+  "store": {
+    "addTocart": "اضافة الى السلة",
+    "moreDetails": "المزيد من التفاصيل"
+  },
+  "cart": {
+    "item": "محتوى السلة",
+    "button": "اطلب الآن",
+    "summry": "ملخص الطلب",
+    "delivery fee": "رسوم التوصيل",
+    "payment method": "اختر طريقة الدفع",
+    "Cash on Delivery": "الدفع عند الاستلام",
+    "Credit/Debit Card": "بطاقة ائتمان/خصم",
+    "ZainCash": "زين كاش",
+    "eFAWATEERcom": "إي فواتيركم",
+    "emptyCart1": " سلتك فارغة!!  ",
+    "emptyCart2": "  اكتشفي قطعًا خالدة تُكمل إطلالتك",
+    "shop now": "تسوق الآن"
+  },
+  "orders": {
+    "processing": "قيد المعالجة",
+    "completed": "مكتملة",
+    "cancelled": "ملغاة",
+    "NoOrders": "لا يوجد طلبات",
+    "button": "تسوق الآن",
+    "pending": "قيد الانتظار",
+    "Jd": "دينار",
+    "total": "المجموع الكلي",
+    "order": "رقم الطلب"
   }
 }

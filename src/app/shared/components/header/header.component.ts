@@ -75,10 +75,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
   goToCart() {
     this.closeDrawer.emit();
-    // this.router.navigate(['/cart']);
+    this.router.navigate(['/cart']);
   }
+
   gotostore() {
-    this.closeDrawer.emit();
     this.router.navigate(['/store']);
   }
   ngAfterViewInit() {

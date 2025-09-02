@@ -16,7 +16,7 @@
       "price": 150,
       "category": "Rings",
       "material": "Silver",
-      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1756556591/Copilot_20250830_152143_hkdrns.png",
       "description": "Shiny silver ring embedded with a small diamond for extra sparkle.",
       "clientid": "k11"
     },
@@ -93,13 +93,33 @@
       "clientid": "k11"
     },
     {
-      "id": "3",
-      "name": "Classic Pearl Earrings",
-      "price": 80,
-      "category": "Earrings",
-      "material": "Pearl",
+      "id": "5",
+      "name": "Leather Charm Bracelet",
+      "price": 60,
+      "category": "Bracelets",
+      "material": "Leather",
       "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
-      "description": "Elegant pearl earrings that add timeless charm to your look.",
+      "description": "Trendy leather bracelet with multiple small charms.",
+      "clientid": "k11"
+    },
+    {
+      "id": "2",
+      "name": "Silver Diamond Ring",
+      "price": 150,
+      "category": "Rings",
+      "material": "Silver",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1756556591/Copilot_20250830_152143_hkdrns.png",
+      "description": "Shiny silver ring embedded with a small diamond for extra sparkle.",
+      "clientid": "k11"
+    },
+    {
+      "id": "4",
+      "name": "Crystal Drop Earrings",
+      "price": 95.25,
+      "category": "Earrings",
+      "material": "Crystal",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+      "description": "Stylish crystal earrings with a delicate drop design.",
       "clientid": "k11"
     }
   ],
@@ -112,80 +132,203 @@
       "usertype": "client"
     },
     {
-      "id": "2",
-      "name": "John Doe",
-      "email": "G5E7S@example.com",
-      "password": "password123",
-      "usertype": "customer"
-    },
-    {
-      "id": "0",
-      "name": "kawtharsafi",
-      "email": "kawtharsafi@gmail.com",
-      "password": "$2b$10$go10l5r8qaN8s4yjQPMZ.uuvvtnpqhglsRQJcCl9f7T3.MiIqVwOW",
-      "usertype": "customer"
-    },
-    {
-      "id": "0",
+      "id": 1756739238766,
       "name": "kawthar",
-      "email": "test@gmail.com",
-      "password": "$2b$10$6Sux6aP3Zw8Ik9AbPt/sQugion0Q7o0ROOcU/pBmdCyFN8QDcfooq",
-      "usertype": "customer"
-    },
-    {
-      "id": "0",
-      "name": "kawthar",
-      "email": "te3st@gmail.com",
-      "password": "$2b$10$TP27oOkocwVBOi2z0JgT3OCiqydH.er12YXXMjAyhLw1Sr9JBMpV.",
-      "usertype": "customer"
-    },
-    {
-      "id": "0",
-      "name": "xffffx",
-      "email": "test123@gmail.com",
-      "password": "$2b$10$AvSUVbLIigFpEHklLyeIR.1ifjym3stH3I41X4WWBNbtmV7rOJom.",
+      "email": "kawtharali@gmail.com",
+      "password": "$2b$10$n4.X8e1DWWMMAsW0iTQkquQURpys7vz56.PtafLdyoflWTrFAVZTK",
       "usertype": "customer"
     }
   ],
   "customers": [
     {
-      "id": "1",
-      "name": "John Doe",
-      "email": "G5E7S@example.com",
-      "password": "password123",
-      "address": "123 Main St, Anytown, USA"
+      "id": "b77a",
+      "idClient": 1756739238766,
+      "name": "kawtharasdf",
+      "email": "kawtharali@gmail.com",
+      "phone": "0782442297",
+      "address": "Amman Jordan"
+    }
+  ],
+  "deliveryRequests": [
+    {
+      "id": "ac54"
     },
     {
-      "id": "f762",
-      "idClient": 0,
-      "name": "kawtharsafi",
-      "email": "kawtharsafi@gmail.com",
-      "phone": "123456789",
-      "address": "dfsdbsbsb"
+      "id": "82671",
+      "deliveryDetails": "",
+      "date": "2025-08-27T13:20:06.229Z",
+      "deliveryStatus": "pending",
+      "driverId": 0,
+      "paymentStatus": "paid",
+      "paymentAmount": 770,
+      "product": [
+        {
+          "id": "3",
+          "name": "Classic Pearl Earrings",
+          "category": "Earrings",
+          "price": 80,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Elegant pearl earrings that add timeless charm to your look.",
+          "material": "Pearl",
+          "quantity": 4
+        },
+        {
+          "id": "2",
+          "name": "Silver Diamond Ring",
+          "category": "Rings",
+          "price": 150,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Shiny silver ring embedded with a small diamond for extra sparkle.",
+          "material": "Silver",
+          "quantity": 3
+        }
+      ]
     },
     {
-      "id": "638e",
-      "idClient": 0,
-      "name": "kawthar",
-      "email": "test@gmail.com",
-      "phone": "12345678",
-      "address": "rrrfgrr"
+      "id": "35859",
+      "deliveryDetails": "",
+      "date": "2025-09-01T17:38:29.269Z",
+      "customerId": 1756739238766,
+      "deliveryStatus": "pending",
+      "driverId": 0,
+      "paymentStatus": "unpaid",
+      "paymentAmount": 485.5,
+      "product": [
+        {
+          "id": "3",
+          "name": "Classic Pearl Earrings",
+          "category": "Earrings",
+          "price": 80,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Elegant pearl earrings that add timeless charm to your look.",
+          "material": "Pearl",
+          "quantity": 2
+        },
+        {
+          "id": "5",
+          "name": "Leather Charm Bracelet",
+          "category": "Bracelets",
+          "price": 60,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Trendy leather bracelet with multiple small charms.",
+          "material": "Leather",
+          "quantity": 1
+        },
+        {
+          "id": "8",
+          "name": "Vintage Pearl Necklace",
+          "category": "Necklaces",
+          "price": 145,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Vintage-style necklace with elegant white pearls.",
+          "material": "Pearl",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "name": "Elegant Gold Ring",
+          "category": "Rings",
+          "price": 120.5,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "A classic elegant gold ring perfect for special occasions.",
+          "material": "Gold",
+          "quantity": 1
+        }
+      ]
     },
     {
-      "id": "bc0d",
-      "idClient": 0,
-      "name": "kawthar",
-      "email": "te3st@gmail.com",
-      "phone": "12345678",
-      "address": "cgfujmh"
+      "id": "25029",
+      "deliveryDetails": "",
+      "date": "2025-09-01T17:40:54.092Z",
+      "customerId": 1756739238766,
+      "deliveryStatus": "pending",
+      "driverId": 0,
+      "paymentStatus": "paid",
+      "paymentAmount": 575.25,
+      "product": [
+        {
+          "id": "3",
+          "name": "Classic Pearl Earrings",
+          "category": "Earrings",
+          "price": 80,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Elegant pearl earrings that add timeless charm to your look.",
+          "material": "Pearl",
+          "quantity": 1
+        },
+        {
+          "id": "4",
+          "name": "Crystal Drop Earrings",
+          "category": "Earrings",
+          "price": 95.25,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Stylish crystal earrings with a delicate drop design.",
+          "material": "Crystal",
+          "quantity": 1
+        },
+        {
+          "id": "6",
+          "name": "Gold Chain Bracelet",
+          "category": "Bracelets",
+          "price": 110,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Elegant gold chain bracelet suitable for everyday wear.",
+          "material": "Gold",
+          "quantity": 1
+        },
+        {
+          "id": "8",
+          "name": "Vintage Pearl Necklace",
+          "category": "Necklaces",
+          "price": 145,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Vintage-style necklace with elegant white pearls.",
+          "material": "Pearl",
+          "quantity": 2
+        }
+      ]
     },
     {
-      "id": "b71d",
-      "idClient": 0,
-      "name": "xffffx",
-      "email": "test123@gmail.com",
-      "phone": "1234567",
-      "address": "zdgdgnfhnf"
+      "id": "20038",
+      "deliveryDetails": "",
+      "date": "2025-09-02T10:38:58.359Z",
+      "customerId": 1756739238766,
+      "deliveryStatus": "pending",
+      "driverId": 0,
+      "paymentStatus": "unpaid",
+      "paymentAmount": 290,
+      "product": [
+        {
+          "id": "3",
+          "name": "Classic Pearl Earrings",
+          "category": "Earrings",
+          "price": 80,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Elegant pearl earrings that add timeless charm to your look.",
+          "material": "Pearl",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Silver Diamond Ring",
+          "category": "Rings",
+          "price": 150,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1756556591/Copilot_20250830_152143_hkdrns.png",
+          "description": "Shiny silver ring embedded with a small diamond for extra sparkle.",
+          "material": "Silver",
+          "quantity": 1
+        },
+        {
+          "id": "5",
+          "name": "Leather Charm Bracelet",
+          "category": "Bracelets",
+          "price": 60,
+          "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+          "description": "Trendy leather bracelet with multiple small charms.",
+          "material": "Leather",
+          "quantity": 1
+        }
+      ]
     }
   ]
 }

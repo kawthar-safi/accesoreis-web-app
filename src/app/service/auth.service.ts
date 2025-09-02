@@ -12,6 +12,8 @@ import {
 } from 'rxjs';
 import { Users } from '../shared/model/user';
 import bcrypt from 'bcryptjs';
+import { Customer } from '../shared/model/customer';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root',
@@ -29,33 +31,21 @@ export class AuthService {
   }
   private http = inject(HttpClient);
   private router = inject(Router);
+  private cartservice = inject(CartService);
   login(email: string, password: string): Observable<Users> {
     return this.http.get<Users[]>(`${this.usersUrl}?email=${email}`).pipe(
       map((users) => {
         const user = users[0];
+        if (!user) throw new Error('User not found');
 
-        if (!user) {
-          throw new Error('User not found');
+        // تحقق من كلمة المرور
+        if (!this.verifyPassword(user, password)) {
+          throw new Error('Invalid email or password');
         }
 
-        if (user.usertype === 'admin') {
-          if (user.password !== password) {
-            throw new Error('Invalid email or password');
-          }
-        } else {
-          if (!bcrypt.compareSync(password, user.password)) {
-            throw new Error('Invalid email or password');
-          }
-        }
+        // حفظ المستخدم في localStorage بعد التحقق
+        this.saveUser(user);
 
-        if (
-          typeof window !== 'undefined' &&
-          typeof window.localStorage !== 'undefined'
-        ) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
-        }
-
-        this.loggedInSubject.next(true);
         return user;
       }),
       catchError((err) => throwError(() => err))
@@ -66,9 +56,8 @@ export class AuthService {
   ): Observable<Users> {
     return this.http.get<Users[]>(`${this.usersUrl}?email=${user.email}`).pipe(
       switchMap((existingUsers) => {
-        if (existingUsers.length > 0) {
+        if (existingUsers.length > 0)
           return throwError(() => new Error('Email already exists'));
-        }
 
         const hashedUser: Users = {
           id: user.id,
@@ -90,11 +79,7 @@ export class AuthService {
 
             return this.http.post(this.customersUrl, customerData).pipe(
               map(() => {
-                localStorage.setItem(
-                  'currentUser',
-                  JSON.stringify(createdUser)
-                );
-                this.loggedInSubject.next(true);
+                this.saveUser(createdUser);
                 return createdUser;
               })
             );
@@ -104,15 +89,46 @@ export class AuthService {
       catchError((err) => throwError(() => err))
     );
   }
-  // getCustomers(id: string): Observable<Customer> {
-  //   return this.http.get<Customer>(`${this.customersUrl}/${id}`);
-  // }
+  private verifyPassword(user: Users, password: string): boolean {
+    if (user.usertype === 'admin') {
+      return user.password === password;
+    }
+    return bcrypt.compareSync(password, user.password);
+  }
 
-  // updateCustomer(id: string, data: Customer): Observable<Customer> {
-  //   return this.http.put<Customer>(`${this.customersUrl}/${id}`, data);
-  // }
+  private saveUser(user: Users) {
+    try {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this.loggedInSubject.next(true);
+    } catch (err) {
+      console.error('Error saving user to localStorage', err);
+    }
+  }
+  isLoggedIn(): boolean {
+    return (
+      typeof window !== 'undefined' &&
+      typeof window.localStorage !== 'undefined' &&
+      !!localStorage.getItem('currentUser')
+    );
+  }
+  getCustomers(userId: string): Observable<Customer> {
+    return this.http
+      .get<Customer[]>(`${this.customersUrl}?idClient=${userId}`)
+      .pipe(map((customers) => customers[0]));
+  }
 
-  // getAllCustomers(): Observable<Customer[]> {
-  //   return this.http.get<Customer[]>(this.customersUrl);
-  // }
+  updateCustomer(id: string, data: Customer): Observable<Customer> {
+    return this.http.put<Customer>(`${this.customersUrl}/${id}`, data);
+  }
+
+  getAllCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.customersUrl);
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.loggedInSubject.next(false);
+    this.router.navigate(['/login']);
+    this.cartservice.clearCart();
+  }
 }
