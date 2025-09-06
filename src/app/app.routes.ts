@@ -44,4 +44,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/cart/cart.component').then((m) => m.CartComponent),
   },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./shared/components/about/about.component').then(
+        (m) => m.AboutComponent
+      ),
+  },
 ];

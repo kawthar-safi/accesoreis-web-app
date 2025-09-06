@@ -15,6 +15,23 @@
 // }
 body {
   background-color: var(--cream-bg);
-  font-family: "Georgia", serif;
+
   color: var(--text-dark);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
+
+/* للنصوص العادية */
+body,
+p,
+span,
+a,
+li {
+  font-family: "Lora", serif;
 }

@@ -76,5 +76,63 @@
     "Jd": "JD",
     "total": "Total",
     "order": "Order"
+  },
+  "section": {
+    "findElement": "Find Your Element",
+    "jewelOfDay": "Jewel of the Day",
+    "featuredCollections": "Featured Collections",
+    "tryRingNow": "Try the Ring Now",
+    "ourStory": "Our Story",
+    "theyFellInLove": "They Fell In Love With Wod"
+  },
+  "button": {
+    "shopNow": "Shop Now",
+    "explore": "Explore",
+    "tryNow": "Try Now"
+  },
+
+  "modal": {
+    "title": "Scan & Shine ✨",
+    "subtitle": "Place your hand in the frame to see how the ring looks on you.",
+    "cameraWarning": "⚠️ Please allow camera access from your browser."
+  },
+  "story": {
+    "text": "Wod was born from a desire to blend timeless craftsmanship with modern elegance. Each piece tells a story — yours and ours."
+  },
+  "feedback": {
+    "quote1": "Exquisite craftsmanship and elegance. I feel truly special wearing it. – L.E. La K., Amman",
+    "quote2": "The packaging alone made me fall in love before I even opened it. – Devika H., Dubai"
+  },
+  "collections": {
+    "rings": {
+      "name": "Rings Collection",
+      "desc": "Discover timeless rings designed for every occasion."
+    },
+    "earrings": {
+      "name": "Earrings Collection",
+      "desc": "Elegant earrings to add sparkle to your style."
+    },
+    "wedding": {
+      "name": "Wedding Collection",
+      "desc": "Celebrate love with our special wedding pieces."
+    },
+    "special": {
+      "name": "Special Collection",
+      "desc": "Shine bright with our premium special pieces."
+    }
+  },
+  "about": {
+    "our_story_title": "OUR STORY",
+    "our_story_paragraph1": "Since its establishment in 2025, Wod Jewellery has been dedicated to creating timeless fine jewelry pieces that blend elegance and craftsmanship.",
+    "our_story_paragraph11": "From our heart in Amman, we aim to deliver not only high-quality designs but also a memorable shopping experience rooted in trust and excellence.",
+    "our_story_paragraph2": "At Wod, our passion runs deep into the art of crafting unique, handcrafted fine jewelry while offering services tailored to your personal needs. Whether you are celebrating life’s milestones or creating everyday elegance, we are here to make each piece meaningful.",
+    "our_story_paragraph3": "With skilled artisans, modern techniques, and a commitment to quality, our mission is to ensure every jewel tells your story beautifully.",
+
+    "our_services_title": "OUR SERVICES",
+    "service_custom_design": "Custom Jewelry Design",
+    "service_repair_polish": "Jewelry Repair & Polishing",
+    "service_diamond_setting": "Diamond & Gemstone Setting",
+    "service_engraving": "Engraving & Personalization",
+    "service_3d_printing": "3D Jewelry Printing"
   }
 }
