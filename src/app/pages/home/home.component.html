@@ -1,6 +1,6 @@
 <div
   id="carouselExampleIndicators"
-  class="carousel slide"
+  class="carousel slide animate__animated animate__fadeIn"
   data-bs-ride="carousel"
   data-bs-interval="3000"
 >
@@ -25,7 +25,7 @@
       <img
         [src]="image.src"
         [alt]="image.alt"
-        class="d-block w-100 slider-img"
+        class="d-block w-100 slider-img animate__animated animate__zoomIn"
       />
     </div>
   </div>
@@ -50,69 +50,91 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="element-section">
-  <h2 class="section-title">Find Your Element</h2>
+
+<!-- Elements Section -->
+<div class="element-section animate__animated animate__fadeInUp">
+  <h2 class="section-title">{{ "section.findElement" | translate }}</h2>
 
   <div class="element-grid">
     <button
-      class="element-card"
+      class="element-card animate__animated animate__zoomIn"
       *ngFor="let el of elements"
       (click)="selectElement(el)"
       type="button"
     >
       <i [class]="el.icon" class="element-icon"></i>
-      <div class="label">{{ el.name }}</div>
+      <div class="label">{{ el.name | translate }}</div>
       <p class="desc">{{ "desc." + el.name | translate }}</p>
     </button>
   </div>
 </div>
-<div class="featured-gem-section" *ngIf="jewelOfTheDay">
+
+<!-- Featured Gem -->
+<div
+  class="featured-gem-section animate__animated animate__fadeInLeft"
+  *ngIf="jewelOfTheDay"
+>
   <div class="featured-gem-content">
-    <img [src]="jewelOfTheDay.image" alt="{{ jewelOfTheDay.name }}" />
+    <img
+      [src]="jewelOfTheDay.image"
+      alt="{{ jewelOfTheDay.name }}"
+      class="animate__animated animate__zoomIn"
+    />
     <div class="featured-gem-info">
-      <h3>Jewel of the Day</h3>
-      <p>
-        Discover the beauty and elegance of today's featured gem, carefully
-        selected to add a unique touch to your look. A distinctive piece with a
-        sophisticated design that suits all styles.
-      </p>
-      <button class="shop-now-btn" routerLink="/store">Shop Now</button>
+      <h3>{{ "section.jewelOfDay" | translate }}</h3>
+      <p>{{ "story.text" | translate }}</p>
+      <button
+        class="shop-now-btn animate__animated animate__pulse"
+        routerLink="/store"
+      >
+        {{ "button.shopNow" | translate }}
+      </button>
     </div>
   </div>
 </div>
-<div>
-  <div class="collection-grid">
-    <h3>Featured Collections</h3>
 
-    <div class="collection-card" *ngFor="let col of collections">
-      <img [src]="col.image" [alt]="col.name" />
+<!-- Featured Collections -->
+<div class="animate__animated animate__fadeInUp">
+  <div class="collection-grid">
+    <h3>{{ "section.featuredCollections" | translate }}</h3>
+
+    <div
+      class="collection-card animate__animated animate__fadeInUp"
+      *ngFor="let col of collections"
+    >
+      <img [src]="col.image" [alt]="col.nameKey | translate" />
       <div class="collection-info">
-        <h4>{{ col.name }}</h4>
-        <p>{{ col.description }}</p>
-        <a class="explore-btn" [routerLink]="col.link">Explore</a>
+        <h4>{{ col.nameKey | translate }}</h4>
+        <p>{{ col.descKey | translate }}</p>
+        <a
+          class="explore-btn animate__animated animate__fadeIn"
+          *ngIf="col.link"
+          [routerLink]="col.link"
+        >
+          {{ "button.explore" | translate }}
+        </a>
       </div>
     </div>
   </div>
-  <div class="tryon-highlight-section">
+
+  <!-- Try On Section -->
+  <div class="tryon-highlight-section animate__animated animate__fadeInRight">
     <div class="tryon-highlight-content">
       <img
         src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1756398497/mokup_o6031n.png"
         alt="Try On Ring"
-        class="tryon-highlight-img"
+        class="tryon-highlight-img animate__animated animate__zoomIn"
       />
 
       <div class="tryon-highlight-info">
-        <h3 class="section-title">Try the Ring Now</h3>
-        <p class="section-subtitle">
-          Experience the magic of this elegant ring using augmented reality. Tap
-          the button and raise your hand to see how it looks on you!
-        </p>
+        <h3 class="section-title">{{ "section.tryRingNow" | translate }}</h3>
+        <p class="section-subtitle">{{ "modal.subtitle" | translate }}</p>
         <button
-          class="try-now-btn"
+          class="try-now-btn animate__animated animate__bounceIn"
           data-bs-toggle="modal"
           data-bs-target="#tryOnModal"
         >
-          Try Now
+          {{ "button.tryNow" | translate }}
         </button>
       </div>
     </div>
@@ -128,10 +150,12 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content scan-shine-modal-content">
+      <div
+        class="modal-content scan-shine-modal-content animate__animated animate__fadeInDown"
+      >
         <div class="modal-header">
           <h5 class="modal-title section-title" id="tryOnModalLabel">
-            Scan & Shine ✨
+            {{ "modal.title" | translate }}
           </h5>
           <button
             type="button"
@@ -141,11 +165,9 @@
           ></button>
         </div>
         <div class="modal-body">
-          <p class="section-subtitle">
-            Place your hand in the frame to see how the ring looks on you.
-          </p>
+          <p class="section-subtitle">{{ "modal.subtitle" | translate }}</p>
           <div *ngIf="cameraPermissionDenied" class="alert alert-warning mt-2">
-            ⚠️ Please allow camera access from your browser.
+            {{ "modal.cameraWarning" | translate }}
           </div>
           <div class="camera-wrapper">
             <video #video autoplay playsinline muted></video>
@@ -153,36 +175,25 @@
             <!-- Ring Overlay -->
             <img
               src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1755713404/Earring_Engagement_Ring_Wedding_Ring_Jewellery_PNG-removebg-preview_shqrez.png"
-              class="ring-overlay"
+              class="ring-overlay animate__animated animate__fadeInUp"
               alt="Ring Overlay"
             />
-
-            <!-- Hand Guide -->
-            <!-- <img src="" class="hand-guide" alt="Hand Guide" /> -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--our story section-->
-  <div class="our-story-section">
+
+  <!-- Our Story Section -->
+  <div class="our-story-section animate__animated animate__fadeInUp">
     <div class="feedback container">
-      <h1>They Fell In Love With Wod</h1>
-      <p>
-        "Exquisite craftsmanship and elegance. I feel truly special wearing it."
-        – L.E. La K., Amman
-      </p>
-      <p>
-        "The packaging alone made me fall in love before I even opened it." –
-        Devika H., Dubai
-      </p>
+      <h1>{{ "section.theyFellInLove" | translate }}</h1>
+      <p>{{ "feedback.quote1" | translate }}</p>
+      <p>{{ "feedback.quote2" | translate }}</p>
     </div>
-    <div>
-      <h1>Our Story</h1>
-      <p>
-        Wod was born from a desire to blend timeless craftsmanship with modern
-        elegance. Each piece tells a story — yours and ours.
-      </p>
+    <div class="animate__animated animate__fadeInLeft">
+      <h1>{{ "section.ourStory" | translate }}</h1>
+      <p>{{ "story.text" | translate }}</p>
     </div>
   </div>
 </div>

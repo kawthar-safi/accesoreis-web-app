@@ -38,7 +38,6 @@
           data-bs-target="#offcanvasRight"
         ></i>
 
-        <!-- العدد -->
         <span
           class="cart-count"
           *ngIf="cartCount$ | async as count"
@@ -60,9 +59,8 @@
   >
     <div class="modal-dialog">
       <div class="modal-content">
-        <!-- رأس المودال -->
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">عنوان المودال</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Wish List</h5>
           <button
             type="button"
             class="btn-close"
@@ -71,32 +69,30 @@
           ></button>
         </div>
 
-        <!-- جسم المودال -->
         <div class="modal-body">
           <div *ngIf="favoriteProducts.length; else noFavorites">
             <div *ngFor="let product of favoriteProducts" class="favorite-item">
               <h5>{{ product.name }}</h5>
-              <p>السعر: {{ product.price | currency }}</p>
-              <p>الفئة: {{ product.category }}</p>
+              <p>Price: {{ product.price | currency }}</p>
+              <p>Category: {{ product.category }}</p>
               <button (click)="favoriteService.removeFromFavorites(product.id)">
-                إزالة
+                Remove
               </button>
               <hr />
             </div>
           </div>
           <ng-template #noFavorites>
-            <p>لا توجد منتجات مفضلة حالياً.</p>
+            <p>No favorite jewelry items now</p>
           </ng-template>
         </div>
 
-        <!-- ذيل المودال -->
         <div class="modal-footer">
           <button
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
           >
-            إغلاق
+            Close
           </button>
         </div>
       </div>
@@ -110,7 +106,7 @@
     aria-labelledby="offcanvasRightLabel"
   >
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <h5 id="offcanvasRightLabel">Cart</h5>
       <button
         type="button"
         class="btn-close text-reset"
@@ -159,7 +155,7 @@
         <div class="empty-cart">
           <p>{{ "drawer.noItem" | translate }}</p>
           <img
-            src="https://res.cloudinary.com/ddsrofo4o/image/upload/v1748620413/emp_s7lwqw.png"
+            src="https://res.cloudinary.com/ddsrofo4o/image/upload/c_crop,h_1000,g_auto/v1756810859/golden-shopping-cart-white-glitter-black-background_fhww0c.png"
             alt
           />
           <button
@@ -187,6 +183,6 @@
         <a [routerLink]="['/store/category', 'necklaces']">Necklaces</a>
       </div>
     </div>
-    <a routerLink="/contact">{{ "header.Contact" | translate }}</a>
+    <a routerLink="/" fragment="footer">{{ "header.Contact" | translate }}</a>
   </nav>
 </header>

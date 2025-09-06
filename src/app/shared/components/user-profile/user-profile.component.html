@@ -1,34 +1,35 @@
-<div *ngIf="currentUser; else noUser">
+<div *ngIf="currentUser; else noUser" class="user-profile">
   <h2>User Profile</h2>
+
   <p><strong>Name:</strong> {{ currentUser.name }}</p>
   <p><strong>Email:</strong> {{ currentUser.email }}</p>
 
   <div *ngIf="currentCustomer">
+    <!-- عرض البيانات -->
     <div *ngIf="!editing">
       <p><strong>Phone:</strong> {{ currentCustomer.phone }}</p>
       <p><strong>Address:</strong> {{ currentCustomer.address }}</p>
       <button (click)="enableEdit()">Edit</button>
     </div>
 
+    <!-- تعديل البيانات -->
     <div *ngIf="editing">
       <label>
         Phone:
         <input [(ngModel)]="editedCustomer!.phone" />
       </label>
-      <br />
       <label>
         Address:
         <input [(ngModel)]="editedCustomer!.address" />
       </label>
-      <br />
       <button (click)="saveChanges()">Save</button>
-      <button (click)="cancelEdit()">Cancel</button>
+      <button (click)="cancelEdit()" class="btn-secondary">Cancel</button>
     </div>
   </div>
 
-  <button (click)="logout()">Logout</button>
+  <button (click)="logout()" class="btn-secondary">Logout</button>
 </div>
 
 <ng-template #noUser>
-  <p>No user is logged in.</p>
+  <p class="no-user">No user is logged in.</p>
 </ng-template>

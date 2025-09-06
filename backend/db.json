@@ -121,6 +121,16 @@
       "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
       "description": "Stylish crystal earrings with a delicate drop design.",
       "clientid": "k11"
+    },
+    {
+      "id": "8",
+      "name": "Vintage Pearl Necklace",
+      "price": 145,
+      "category": "Necklaces",
+      "material": "Pearl",
+      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
+      "description": "Vintage-style necklace with elegant white pearls.",
+      "clientid": "k11"
     }
   ],
   "users": [
@@ -132,7 +142,7 @@
       "usertype": "client"
     },
     {
-      "id": 1756739238766,
+      "id": "1756739238766",
       "name": "kawthar",
       "email": "kawtharali@gmail.com",
       "password": "$2b$10$n4.X8e1DWWMMAsW0iTQkquQURpys7vz56.PtafLdyoflWTrFAVZTK",

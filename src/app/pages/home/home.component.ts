@@ -36,58 +36,55 @@ export class HomeComponent implements AfterViewInit, OnInit {
       icon: 'bi-fire',
       value: 'fire',
       material: 'Gold',
-      desc: 'Bold & radiant like flames',
     },
     {
       name: 'Water',
       icon: 'bi-droplet',
       value: 'water',
       material: 'Pearl',
-      desc: 'Elegant & fluid as waves',
     },
     {
       name: 'Earth',
       icon: 'bi-tree',
       value: 'earth',
       material: 'Crystal',
-      desc: 'Grounded with timeless gems',
     },
     {
       name: 'Air',
       icon: 'bi-cloud',
       value: 'air',
       material: 'Silver',
-      desc: 'Light & dazzling brilliance',
     },
   ];
+
   collections = [
     {
-      name: 'Rings Collection',
-      description: 'Discover timeless rings designed for every occasion.',
+      nameKey: 'collections.rings.name',
+      descKey: 'collections.rings.desc',
       image:
         'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756851147/Dainty_Rings_kwyfza.jpg',
       link: '/store/category/rings',
     },
     {
-      name: 'Earrings Collection',
-      description: 'Elegant earrings to add sparkle to your style.',
+      nameKey: 'collections.earrings.name',
+      descKey: 'collections.earrings.desc',
       image:
         'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756852157/download_7_pgxrjq.jpg',
       link: '/store/earrings',
     },
     {
-      name: 'Wedding Collection',
-      description: 'Celebrate love with our special wedding pieces.',
+      nameKey: 'collections.wedding.name',
+      descKey: 'collections.wedding.desc',
       image:
         'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756853037/dareth_colburn_xzfwry.jpg',
-      // link: '/store/wedding',
+      link: '/store',
     },
     {
-      name: 'Special Collection',
-      description: 'Shine bright with our premium special pieces.',
+      nameKey: 'collections.special.name',
+      descKey: 'collections.special.desc',
       image:
-        'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756852777/Copilot_20250903_013929_vysjgz.png',
-      // link: '/store/diamond',
+        'https://res.cloudinary.com/ddsrofo4o/image/upload/v1756904979/Copilot_20250903_013929_1_1_gmung7.jpg',
+      link: '/store',
     },
   ];
 

@@ -3,5 +3,5 @@ export interface ElementCard {
   icon: string;
   value: string;
   material: string;
-  desc: string;
+  desc?: string;
 }

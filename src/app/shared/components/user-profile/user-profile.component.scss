@@ -1,0 +1,137 @@
+/* User Profile Section */
+.user-profile {
+  background: #f9f5f0;
+  padding: 2rem;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 800px;
+  margin: 2rem auto;
+  color: #3b2b20;
+  align-items: center;
+}
+
+.user-profile h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--soft-gold);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.user-profile p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #4a3a2b;
+  text-align: center;
+}
+
+.user-profile strong {
+  color: var(--soft-gold);
+}
+
+.user-profile label {
+  display: block;
+  margin: 0.8rem 0 0.4rem;
+  font-weight: 500;
+  color: #5c4533;
+}
+
+.user-profile input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+  text-align: center;
+}
+
+.user-profile input:focus {
+  border-color: var(--soft-gold);
+  box-shadow: 0 0 5px rgba(196, 164, 108, 0.6);
+}
+
+/* Buttons */
+.user-profile button {
+  display: inline-block;
+  background-color: var(--soft-gold);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+  margin: 0.5rem; /* بدل margin-right/top */
+}
+
+.user-profile button:hover {
+  background-color: #c4a46c;
+}
+
+.user-profile .btn-secondary {
+  background-color: #5c4533;
+  color: #fff;
+}
+
+.user-profile .btn-secondary:hover {
+  background-color: #3b2b20;
+}
+
+/* ✅ نخلي الأزرار في النص */
+.user-profile {
+  text-align: center;
+}
+
+/* No user style */
+.no-user {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 2rem;
+}
+
+/* 🌐 Responsive Design */
+@media (max-width: 768px) {
+  .user-profile {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .user-profile h2 {
+    font-size: 1.6rem;
+  }
+
+  .user-profile p {
+    font-size: 1rem;
+  }
+
+  .user-profile button {
+    display: block;
+    width: 100%;
+    margin: 0.6rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-profile {
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .user-profile h2 {
+    font-size: 1.4rem;
+  }
+
+  .user-profile input {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .user-profile button {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+}
