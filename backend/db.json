@@ -93,16 +93,6 @@
       "clientid": "k11"
     },
     {
-      "id": "5",
-      "name": "Leather Charm Bracelet",
-      "price": 60,
-      "category": "Bracelets",
-      "material": "Leather",
-      "image": "https://res.cloudinary.com/ddsrofo4o/image/upload/v1755874096/Copilot_20250822_174501-removebg-preview_gtumyy.png",
-      "description": "Trendy leather bracelet with multiple small charms.",
-      "clientid": "k11"
-    },
-    {
       "id": "2",
       "name": "Silver Diamond Ring",
       "price": 150,
@@ -147,6 +137,13 @@
       "email": "kawtharali@gmail.com",
       "password": "$2b$10$n4.X8e1DWWMMAsW0iTQkquQURpys7vz56.PtafLdyoflWTrFAVZTK",
       "usertype": "customer"
+    },
+    {
+      "id": 1757186185345,
+      "name": "kawthar",
+      "email": "kAaenshb@gmail.com",
+      "password": "$2b$10$gcm7DTdR3PluQtTfyVG0m.vbxhjy5UIcm1lAeqRsQ3D9FljkWQK06",
+      "usertype": "customer"
     }
   ],
   "customers": [
@@ -157,6 +154,14 @@
       "email": "kawtharali@gmail.com",
       "phone": "0782442297",
       "address": "Amman Jordan"
+    },
+    {
+      "id": "f079",
+      "idClient": 1757186185345,
+      "name": "kawthar",
+      "email": "kAaenshb@gmail.com",
+      "phone": "3456789",
+      "address": "shfgmgjfhn"
     }
   ],
   "deliveryRequests": [
